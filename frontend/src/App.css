@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 60px;
+  padding: 10px;  
+  color: white;
+  /* box-sizing: border-box; */
+}
+
+.keyboard {
+  background-color: #9ffff2;
+  height: 100px;
+  /* float: left; */
+  width: 90%;
+}
+
+.soundFlow {
+  /* height: 1000px; */
+  /* float: left; */
+  /* width: 90%; */
+}
+
+.soundFlow .keyboardFlow {
+  background-color: #999999;
+  height: 1000px;
+  float: left;
+  width: 90%;
+}
+
+.soundFlow .voiceFlow {
+  background-color: #885ff3;
+  height: 1000px;
+  margin-left: 90%; 
+}
+
+
+.App-intro {
+  font-size: large;
+} 
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
