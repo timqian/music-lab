@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
+import Keyboard from './Keyboard'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" />  */}
           <h2>Music lab</h2>
-        </div>
+        </div> 
 
-        <div className="keyboard">keyboard</div>
+         <div className="board">
+           <Keyboard pressedArr={[]} keyboardType = 'ELECTRONIC'/>
+           <div className="voiceBoard"></div>
+         </div> 
+        
         <div className="soundFlow">
           <div className="keyboardFlow">keyboardFlow</div>
           <div className="voiceFlow">voiceFlow</div>

@@ -1,43 +1,43 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+   text-align: center; 
 }
 
 .App-header {
-  background-color: #222;
-  height: 60px;
-  padding: 10px;  
-  color: white;
-  /* box-sizing: border-box; */
+  color: #333333;
+  position: fixed;
+  top: 0;
 }
 
-.keyboard {
-  background-color: #9ffff2;
-  height: 100px;
-  /* float: left; */
-  width: 90%;
+.App-header > h2 {
+  margin-left: 5px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.board {
+  /* background-color: gray; */
+  padding-top: 6px;
+  height: 0px;  
+  width: 100%;
+  position: fixed;
+  top: 35px;
+  white-space: nowrap;
 }
 
 .soundFlow {
-  /* height: 1000px; */
-  /* float: left; */
-  /* width: 90%; */
+  margin-top: 122px;
 }
 
 .soundFlow .keyboardFlow {
-  background-color: #999999;
-  height: 1000px;
+  background-color: white;
+  height: 15000px;
   float: left;
   width: 90%;
 }
 
 .soundFlow .voiceFlow {
   background-color: #885ff3;
-  height: 1000px;
+  height: 15000px;
   margin-left: 90%; 
 }
 
@@ -49,4 +49,12 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.voiceBoard {
+  display: inline-block;
+  width: 70px;
+  height: 80px;
+  background-color: yellow;
+  border: 1px solid gray;
 }

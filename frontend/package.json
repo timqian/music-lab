@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "midiconvert": "^0.4.1",
+    "mobx": "^3.2.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.10"
+    "react-scripts": "1.0.10",
+    "tone": "^0.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
