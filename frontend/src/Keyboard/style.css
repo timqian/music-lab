@@ -3,9 +3,8 @@
     height: 80px;
     background-color: white;
     display: inline-block;
-    /* border-top: 3px solid red; */
     border-left: 1px solid gray;
-    border-bottom: 1px solid gray; 
+    border-bottom: 1px solid gray;  
 }
 
 .Keyboard-blackKey {
@@ -22,20 +21,16 @@
 }
 
 .Keyboard-keyWrapper {
-    display: inline-block; 
     position: relative;
-}
-
-.Keyboard-octave {
-    display: inline-block;
+    display: inline-block; 
 }
 
 .Keyboard-board {
-    /* white-space: nowrap; */
     display: inline-block;
-    /* position: fixed;
-    top: 100px;
-    margin: 0, auto; */
+}
+
+.Keyboard-hide {
+    display: none;
 }
 
 .C {
@@ -134,6 +129,3 @@
     background-color: magenta; cursor:Pointer;
 }
 
-.Keyboard-hide {
-    display: none;
-}

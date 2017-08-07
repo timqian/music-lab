@@ -1,60 +1,37 @@
 .App {
-   text-align: center; 
+   /* text-align: center;  */
 }
 
 .App-header {
-  color: #333333;
-  position: fixed;
-  top: 0;
-}
-
-.App-header > h2 {
-  margin-left: 5px;
-  margin-top: 5px;
-  text-align: left;
+  background-color: black;
+  width: 100%;
+  color: whitesmoke;
+  position: fixed; 
+  top: 0; 
+  font-size: 30px;
+  padding-left: 20px;
+  height: 35px;
 }
 
 .board {
-  /* background-color: gray; */
-  padding-top: 6px;
-  height: 0px;  
-  width: 100%;
-  position: fixed;
-  top: 35px;
+  text-align: center; 
+  background-color: black;  
+  width: 100%; 
+  position: fixed; 
+  top: 35px; 
+  padding-top: 10px;
   white-space: nowrap;
+  height: 87px;
 }
 
 .soundFlow {
-  margin-top: 122px;
+  text-align: center;
+  white-space: nowrap;
+  margin-top: 132px;
+  width: 100%
 }
 
-.soundFlow .keyboardFlow {
-  background-color: white;
+.keyboardFlow {
+  background-color: gray;
   height: 15000px;
-  float: left;
-  width: 90%;
-}
-
-.soundFlow .voiceFlow {
-  background-color: #885ff3;
-  height: 15000px;
-  margin-left: 90%; 
-}
-
-
-.App-intro {
-  font-size: large;
-} 
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.voiceBoard {
-  display: inline-block;
-  width: 70px;
-  height: 80px;
-  background-color: yellow;
-  border: 1px solid gray;
 }

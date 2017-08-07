@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
-import Keyboard from './Keyboard'
+import Keyboard from './Keyboard';
+import store from './store.js';
+import {observer} from 'mobx-react';
 
+@observer // inform componenet when store updates
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Music lab</h2>
+          Music lab
         </div> 
 
-         <div className="board">
-           <Keyboard pressedArr={[]} keyboardType = 'ELECTRONIC'/>
-           <div className="voiceBoard"></div>
-         </div> 
+        <div className="board"> 
+          <Keyboard pressedArr={store.pressedArr} keyboardType = {store.keyboardType}/>
+          {/* <div className="voiceBoard"></div> */}
+        </div>  
         
-        <div className="soundFlow">
+         <div className="soundFlow"> 
           <div className="keyboardFlow">keyboardFlow</div>
-          <div className="voiceFlow">voiceFlow</div>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
+          {/* <div className="voiceFlow">voiceFlow</div> */}
+         </div> 
       </div>
     );
   }

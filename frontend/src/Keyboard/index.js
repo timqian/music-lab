@@ -1,11 +1,13 @@
 // keyboard with keys to be pressed down
 
 import React, { Component } from 'react';
-import './style.css'
-import store from '../store.js'
+import './style.css';
+import store from '../store.js';
+import {observer} from 'mobx-react';
 // import Tone from 'tone';
 // var synth = new Tone.FMSynth().toMaster()
 
+@observer // Question: why also need it here? inorder to update pressedArr
 export default class Board extends Component {
 
   componentDidMount() {
@@ -24,15 +26,10 @@ export default class Board extends Component {
   }
 
   render() {
-    const pressedArr = this.props.pressedArr; //  [60, 61]
+    const pressedArr = this.props.pressedArr;
     const keyboardType = this.props.keyboardType;
-    
-    // press keys 
-    const pressedKeys = [];
-    for (let i = 0; i < 128; i++) {
-      pressedKeys[i] = '';
-    }
-    pressedArr.forEach(keyNum => pressedKeys[keyNum] = 'onPress');
+
+    const pressedKeys = pressedArr.map(isPress => isPress ? 'onPress' : '');
 
     // hide keys
     const hidedKeys = [];
