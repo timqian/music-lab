@@ -1,0 +1,34 @@
+.Row {
+   display: inline-block;
+   border-bottom: 1px solid gray;
+   border-right: 1px solid gray;
+   /*
+        prevent line to be breaked by white space
+        https://developer.mozilla.org/en-US/docs/Web/CSS/white-space
+   */
+   white-space: nowrap; 
+}
+
+.cellWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.writeCell {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-left: 1px solid gray;
+}
+
+.blackCell {
+    position: absolute;
+    top:0;
+    z-index: 1;
+    left: 19px; 
+    width: 11px;
+    height: 24px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}

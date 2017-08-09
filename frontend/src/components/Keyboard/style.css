@@ -1,13 +1,24 @@
-.Keyboard-writeKey {
-    width: 24px;
-    height: 80px;
-    background-color: white;
+.keyboard {
     display: inline-block;
-    border-left: 1px solid gray;
+    border-right: 1px solid gray;
     border-bottom: 1px solid gray;  
 }
 
-.Keyboard-blackKey {
+.keyWrapper {
+    position: relative;
+    display: inline-block; 
+}
+
+.writeKey {
+    display: inline-block;
+    width: 24px;
+    height: 80px;
+    background-color: white;
+    border-left: 1px solid gray;
+
+}
+
+.blackKey {
     position: absolute;    
     z-index: 1;
     top: 0;
@@ -17,67 +28,53 @@
     background-color: black;
     border-left: 1px solid gray;
     border-right: 1px solid gray;
-    border-bottom: 1px solid gray; 
 }
 
-.Keyboard-keyWrapper {
-    position: relative;
-    display: inline-block; 
-}
-
-.Keyboard-board {
-    display: inline-block;
-}
-
-.Keyboard-hide {
-    display: none;
-}
-
-.C {
+.key.C {
     border-top: 5px solid red;
 }
 
-.Csharp {
+.key.Csharp {
    border-top: 5px solid orangered; 
 }
 
-.D {
+.key.D {
     border-top: 5px solid orange;
 }
 
-.Dsharp {
+.key.Dsharp {
     border-top: 5px solid #ffcc00;
 }
 
-.E {
+.key.E {
     border-top: 5px solid yellow;
 }
 
-.F {
+.key.F {
     border-top: 5px solid greenyellow;
 }
 
-.Fsharp {
+.key.Fsharp {
     border-top: 5px solid green;
 }
 
-.G {
+.key.G {
     border-top: 5px solid cyan;
 }
 
-.Gsharp {
+.key.Gsharp {
     border-top: 5px solid blue;
 }
 
-.A {
+.key.A {
     border-top: 5px solid blueviolet;
 }
 
-.Asharp {
+.key.Asharp {
     border-top: 5px solid violet;
 }
 
-.B {
+.key.B {
     border-top: 5px solid magenta;
 }
 

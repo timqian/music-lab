@@ -1,20 +1,20 @@
 import Tone from 'tone';
-import {observable, autorun}  from 'mobx';
+import { observable, autorun } from 'mobx';
 
 let pressedArr = [];
 const synthArr = [];
 
 // TODO: maybe memary problem: 128 keys make the sound weird
-for(let i = 36; i < 97; i++) {
+for (let i = 0; i < 61; i++) {
     pressedArr[i] = 0;
     synthArr[i] = new Tone.Synth().toMaster();
 }
+
 pressedArr = observable(pressedArr);
 
 const store = {
     pressedArr: pressedArr,
-    keyboardType: 'ELECTRONIC', // 'PIANO',  'FULL'
-    notes:[],
+    notes2D: [], // 2 D notes arr
     bpm: 80, // beats per minites (scroll spead)
     time: 0,
     isPlaying: false,
@@ -45,9 +45,9 @@ autorun(() => {
 })
 
 const numberNameMap = [
-    'C-1', 'C#-1', 'D-1', 'D#-1', 'E-1', 'F-1', 'F#-1', 'G-1', 'G#-1', 'A-1', 'A#-1', 'B-1',
-    'C0', 'C#0', 'D0', 'D#0', 'E0', 'F0', 'F#0', 'G0', 'G#0', 'A0', 'A#0', 'B0',
-    'C1', 'C#1', 'D1', 'D#1', 'E1', 'F1', 'F#1', 'G1', 'G#1', 'A1', 'A#1', 'B1',
+    // 'C-1', 'C#-1', 'D-1', 'D#-1', 'E-1', 'F-1', 'F#-1', 'G-1', 'G#-1', 'A-1', 'A#-1', 'B-1',
+    // 'C0', 'C#0', 'D0', 'D#0', 'E0', 'F0', 'F#0', 'G0', 'G#0', 'A0', 'A#0', 'B0',
+    // 'C1', 'C#1', 'D1', 'D#1', 'E1', 'F1', 'F#1', 'G1', 'G#1', 'A1', 'A#1', 'B1',
     'C2', 'C#2', 'D2', 'D#2', 'E2', 'F2', 'F#2', 'G2', 'G#2', 'A2', 'A#2', 'B2',
     'C3', 'C#3', 'D3', 'D#3', 'E3', 'F3', 'F#3', 'G3', 'G#3', 'A3', 'A#3', 'B3',
     'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4',
@@ -57,7 +57,7 @@ const numberNameMap = [
     'C8', 'C#8', 'D8', 'D#8', 'E8', 'F8', 'F#8', 'G8', 'G#8', 'A8', 'A#8', 'B8',
     'C9', 'C#9', 'D9', 'D#9', 'E9', 'F9', 'F#9', 'G9', 'G#9', 'A9', 'A#9', 'B9',
     'C10', 'C#10', 'D10', 'D#10', 'E10', 'F10', 'F#10', 'G10',
-] 
+];
 
 export default store;
 

@@ -26,7 +26,7 @@
 
 .soundFlow {
   text-align: center;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   margin-top: 132px;
   width: 100%
 }
