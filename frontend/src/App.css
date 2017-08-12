@@ -1,12 +1,14 @@
 .App {
    /* text-align: center;  */
+   user-select: none;
 }
 
 .App-header {
+  position: fixed; 
+  z-index: 2;
   background-color: black;
   width: 100%;
   color: whitesmoke;
-  position: fixed; 
   top: 0; 
   font-size: 30px;
   padding-left: 20px;
@@ -14,10 +16,11 @@
 }
 
 .board {
+  position: fixed; 
+  z-index: 2;
   text-align: center; 
   background-color: black;  
   width: 100%; 
-  position: fixed; 
   top: 35px; 
   padding-top: 10px;
   white-space: nowrap;

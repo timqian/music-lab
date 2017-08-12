@@ -1,37 +1,34 @@
 import React, { Component } from 'react';
 import './App.css';
 import Keyboard from './components/Keyboard';
-import store from './store.js';
-import {observer} from 'mobx-react';
+import { observer } from 'mobx-react';
 import Strap from './components/Strap';
-import {KEY_NUM} from './config';
-
-const notes2D = [[],[],[],[],[]];
-
-for (let i = 0; i < KEY_NUM; i++) {
-  notes2D[0].push(0);
-  notes2D[1].push(0);
-  notes2D[2].push(0);
-  notes2D[3].push(0);
-  notes2D[4].push(0);
-}
+import { KEY_NUM } from './config';
+const mobxDevtools = require('mobx-react-devtools');
 
 @observer // inform componenet when store updates
 class App extends Component {
+
   render() {
+    const store = this.props.store;
+
     return (
-      <div className="App">
+      <div className="App"
+        onMouseDown={() => store.isMouseDown = true}
+        onMouseUp={() => store.isMouseDown = false}
+      >
         <div className="App-header">
           Music lab
-        </div> 
+        </div>
 
-        <div className="board"> 
-          <Keyboard pressedArr={store.pressedArr} />
-        </div>  
-        
-         <div className="soundFlow"> 
-           <Strap notes2D = {notes2D} /> 
-         </div> 
+        <div className="board">
+          <Keyboard pressedArr={store.notes2D[0]} isMouseDown={store.isMouseDown}/>
+        </div>
+
+        <div className="soundFlow">
+          <Strap notes2D={store.notes2D} isMouseDown={store.isMouseDown}/>
+        </div>
+        <mobxDevtools.default />
       </div>
     );
   }

@@ -7,11 +7,13 @@
         https://developer.mozilla.org/en-US/docs/Web/CSS/white-space
    */
    white-space: nowrap; 
+
 }
 
 .cellWrapper {
     position: relative;
     display: inline-block;
+    /* user-select: none; */
 }
 
 .writeCell {
@@ -20,6 +22,7 @@
     height: 24px;
     background-color: white;
     border-left: 1px solid gray;
+
 }
 
 .blackCell {

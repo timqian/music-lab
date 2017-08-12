@@ -10,6 +10,7 @@
 }
 
 .writeKey {
+    /* z-index: 0; */
     display: inline-block;
     width: 24px;
     height: 80px;

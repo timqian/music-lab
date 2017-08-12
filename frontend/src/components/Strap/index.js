@@ -5,14 +5,17 @@ import Row from './Row';
 export default class Strap extends Component {
     render() {
         const notes2D = this.props.notes2D;
-        
-        const unnamed = notes2D.map((notes,i) => {
-            return (<Row notes={notes} rowNum = {i} key={i}/>)
+        const isMouseDown = this.props.isMouseDown;
+
+        const unnamed = notes2D.map((notes, i) => {
+            return (<Row notes={notes} rowNum={i} key={i} 
+                isMouseDown={isMouseDown} />);
         });
+        
         return (
             <div className="rowWrapper">
                 {unnamed}
-            </div> 
+            </div>
         )
     }
 }
