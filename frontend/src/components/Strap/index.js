@@ -7,14 +7,14 @@ export default class Strap extends Component {
         const notes2D = this.props.notes2D;
         const isMouseDown = this.props.isMouseDown;
 
-        const unnamed = notes2D.map((notes, i) => {
+        const rowArr = notes2D.map((notes, i) => {
             return (<Row notes={notes} rowNum={i} key={i} 
                 isMouseDown={isMouseDown} />);
         });
         
         return (
-            <div className="rowWrapper">
-                {unnamed}
+            <div className="rowWrapper" >
+                {rowArr}
             </div>
         )
     }

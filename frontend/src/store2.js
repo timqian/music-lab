@@ -19,7 +19,7 @@ class Store {
     constructor(notes2D) {
         this.notes2D = notes2D;
         autorun(() => console.log('isMouseDown in store', this.isMouseDown));
-        autorun(() => console.log('notes2d 1 1 in store', this.notes2D)); 
+        // autorun(() => console.log('notes2d 1 1 in store', JSON.stringify(this.notes2D))); 
     }
 }
 

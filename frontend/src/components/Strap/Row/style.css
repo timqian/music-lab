@@ -20,7 +20,7 @@
     display: inline-block;
     width: 24px;
     height: 24px;
-    background-color: white;
+    /* background-color: white; */
     border-left: 1px solid gray;
 
 }

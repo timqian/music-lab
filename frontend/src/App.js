@@ -3,7 +3,6 @@ import './App.css';
 import Keyboard from './components/Keyboard';
 import { observer } from 'mobx-react';
 import Strap from './components/Strap';
-import { KEY_NUM } from './config';
 const mobxDevtools = require('mobx-react-devtools');
 
 @observer // inform componenet when store updates
@@ -22,11 +21,11 @@ class App extends Component {
         </div>
 
         <div className="board">
-          <Keyboard pressedArr={store.notes2D[0]} isMouseDown={store.isMouseDown}/>
+          <Keyboard pressedArr={store.notes2D[0]} isMouseDown={store.isMouseDown} />
         </div>
 
         <div className="soundFlow">
-          <Strap notes2D={store.notes2D} isMouseDown={store.isMouseDown}/>
+          <Strap notes2D={store.notes2D} isMouseDown={store.isMouseDown} />
         </div>
         <mobxDevtools.default />
       </div>
