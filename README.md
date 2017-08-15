@@ -21,3 +21,8 @@ props in the next level is not updated,
 ## good examples
 
 examples in the readme of https://github.com/mudcube/MIDI.js
+
+## How to deal with continuity:
+
+1. 1px gap if clicked; remove 1px gap if continuly
+2. better way: triple state of a cell

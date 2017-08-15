@@ -11,6 +11,12 @@ class App extends Component {
   render() {
     const store = this.props.store;
 
+    function handleScroll() {
+      const currentPosition = document.querySelector('.soundFlow').scrollTop;
+      const currentRow = Math.floor(currentPosition / 25);
+      store.currentRow = currentRow;
+    }
+
     return (
       <div className="App"
         onMouseDown={() => store.isMouseDown = true}
@@ -24,7 +30,7 @@ class App extends Component {
           <Keyboard pressedArr={store.notes2D[0]} isMouseDown={store.isMouseDown} />
         </div>
 
-        <div className="soundFlow">
+        <div className="soundFlow" onScroll={() => handleScroll()}>
           <Strap notes2D={store.notes2D} isMouseDown={store.isMouseDown} />
         </div>
         <mobxDevtools.default />
