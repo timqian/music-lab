@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import './style.css';
 import { attack, release } from '../../utils/notePlayer.js';
 
-
 export default class Board extends Component {
     componentDidMount() {
         document.querySelectorAll(`.key`)

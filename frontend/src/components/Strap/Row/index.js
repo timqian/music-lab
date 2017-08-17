@@ -4,6 +4,7 @@ import '../../Keyboard/style.css'; // TODO: borrow not hover and press effect, m
 import {attack, release} from '../../../utils/notePlayer.js';
 import { observer } from 'mobx-react';
 
+let noteMark = 1; // the notes recored with mousedown and move have the same pressType;
 
 @observer
 export default class Row extends Component {
@@ -16,10 +17,11 @@ export default class Row extends Component {
             .forEach((cell, i) => {
                 cell.addEventListener('mousedown', () => {
                     attack(i);
-                    notes[i] = !notes[i];
+                    notes[i] = noteMark;
                 });
                 cell.addEventListener('mouseup', () => {
                     release(i);
+                    noteMark++;
                 });
 
                 cell.addEventListener('mouseleave', () => {
@@ -37,8 +39,12 @@ export default class Row extends Component {
 
         function handleMouseOver (i) {
             if (isMouseDown) {
-                attack(i);
-                notes[i] = !notes[i];
+                if (notes[i] !== 0) {
+                    notes[i] = 0;
+                } else {
+                    attack(i);
+                    notes[i] = noteMark; 
+                }
             }
         }
 

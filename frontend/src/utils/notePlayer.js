@@ -14,11 +14,11 @@ export function release(i) {
     polySynth.triggerRelease([NUM_KEY_MAP[i]]);
 }
 
-export function attackRow (binaryRow) {
-    console.log(binaryRow);
+export function attackRow (currentRow, lastRow) {
+    console.log(currentRow);
     const keyArr = [];
-    for (let i = 0; i < binaryRow.length; i++) {
-        if(binaryRow[i]) keyArr.push(NUM_KEY_MAP[i]);
+    for (let i = 0; i < currentRow.length; i++) {
+        if(currentRow[i]) keyArr.push(NUM_KEY_MAP[i]);
     }
     
     polySynth.triggerAttackRelease(keyArr, '4n');

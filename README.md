@@ -26,3 +26,6 @@ examples in the readme of https://github.com/mudcube/MIDI.js
 
 1. 1px gap if clicked; remove 1px gap if continuly
 2. better way: triple state of a cell
+
+## let the user know sound strap scrollable: 半透明
+example: https://www.graph.cool/docs/reference/auth/permission-queries-iox3aqu0ee/
