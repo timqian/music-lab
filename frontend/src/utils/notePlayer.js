@@ -15,13 +15,15 @@ export function release(i) {
 }
 
 export function attackRow (currentRow, lastRow) {
-    console.log(currentRow);
-    const keyArr = [];
+    const attackArr = [];
+    const releaseArr = [];
     for (let i = 0; i < currentRow.length; i++) {
-        if(currentRow[i]) keyArr.push(NUM_KEY_MAP[i]);
+        if(currentRow[i] !== 0 && currentRow[i] !== lastRow[i]) attackArr.push(NUM_KEY_MAP[i]);
+        if(currentRow[i] === 0) releaseArr.push(NUM_KEY_MAP[i]);
     }
     
-    polySynth.triggerAttackRelease(keyArr, '4n');
+    polySynth.triggerAttackRelease(attackArr);
+    polySynth.triggerRelease(releaseArr);
 }
 // attack(30);
 // attack(30);
@@ -32,4 +34,4 @@ export function attackRow (currentRow, lastRow) {
 // }, 1000);
 
 // release(30);
-// release(30)
+// release(30);

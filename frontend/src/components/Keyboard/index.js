@@ -23,10 +23,11 @@ export default class Board extends Component {
 
     render() {
         const pressedArr = this.props.pressedArr;
-        const pressedKeys = pressedArr.map(isPress => isPress ? 'onPress' : '');
+        const pressedKeys = pressedArr ? pressedArr.map(isPress => isPress ? 'onPress' : '') : [];
         const isMouseDown = this.props.isMouseDown;
 
         function handleMouseOver(i) {
+            console.log('is mouse down', isMouseDown);
             if (isMouseDown) {
                 attack(i);
             }

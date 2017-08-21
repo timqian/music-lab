@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import '../../Keyboard/style.css'; // TODO: borrow not hover and press effect, might be better solution
-import {attack, release} from '../../../utils/notePlayer.js';
+import { attack, release } from '../../../utils/notePlayer.js';
 import { observer } from 'mobx-react';
 
 let noteMark = 1; // the notes recored with mousedown and move have the same pressType;
@@ -16,8 +15,12 @@ export default class Row extends Component {
         document.querySelectorAll(`.${rowClassName} .cell`)
             .forEach((cell, i) => {
                 cell.addEventListener('mousedown', () => {
-                    attack(i);
-                    notes[i] = noteMark;
+                    if (notes[i]) {
+                        notes[i] = 0;
+                    } else {
+                        notes[i] = noteMark;
+                        attack(i);
+                    }
                 });
                 cell.addEventListener('mouseup', () => {
                     release(i);
@@ -31,19 +34,29 @@ export default class Row extends Component {
     }
 
     render() {
-        const notes = this.props.notes; // FIXME: duplicated definitions
-        const noteKeys = notes.map(isPress => isPress ? 'onPress' : '');
+        // FIXME: duplicated definitions with componentDidMount
+        const notes = this.props.notes;
+        const lastRow = this.props.lastRow;
+
+        const noteKeys = [];
+        for (let i = 0; i < notes.length; i++) {
+            if (notes[i] !== 0 && lastRow) {
+                notes[i] === lastRow[i] ? noteKeys.push('onPressContinue onPress') : noteKeys.push('onPress');
+            } else {
+                noteKeys.push('');
+            }
+        }
         const rowNum = this.props.rowNum;
         const rowClassName = `Row-${rowNum}`;
         const isMouseDown = this.props.isMouseDown;
 
-        function handleMouseOver (i) {
+        function handleMouseOver(i) {
             if (isMouseDown) {
                 if (notes[i] !== 0) {
                     notes[i] = 0;
                 } else {
+                    notes[i] = noteMark;
                     attack(i);
-                    notes[i] = noteMark; 
                 }
             }
         }

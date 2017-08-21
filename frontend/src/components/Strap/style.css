@@ -6,4 +6,6 @@
           https://stackoverflow.com/questions/5078239/how-to-remove-the-space-between-inline-block-elements
       */
       font-size: 0;
+      height: 85vh;
+      overflow-y: scroll;
 }

@@ -8,6 +8,8 @@ import {attackRow} from './utils/notePlayer.js'
 // How to play notes?
 // use PolySynth
 
+let handeler;
+
 class Store {
   @observable notes2D;// 2D number array storing all the notes of a song
   @observable currentRow = 0; // current time
@@ -19,15 +21,29 @@ class Store {
 
   constructor(notes2D) {
     this.notes2D = notes2D;
-    autorun(() => console.log('isMouseDown in store', this.isMouseDown))
-      .onError(e => {
-        console.log(e)
-      });
-    // TODO play the Row
+    autorun(() => console.log('isMouseDown in store', this.isMouseDown));
+
+    // play the Row
     autorun(() => {
-      console.log('current row in store', this.currentRow)
-      attackRow(this.notes2D[this.currentRow])
-    }); 
+      // console.log('current row in store', this.currentRow);
+      attackRow(this.notes2D[this.currentRow], this.notes2D[this.currentRow-1]);
+    });
+    
+    // play the sound strap
+    autorun(() => {
+      if (this.isPlaying) {
+        const element = document.querySelector('.rowWrapper');
+        handeler = setInterval(()=>{
+          // if (element.scrollTop >0) {
+            element.scrollTop += 1;
+          // } else {
+            // element.scrollTop = 0;
+          // }
+        }, 10);
+      } else {
+        clearInterval(handeler);
+      }
+    });
   }
 }
 
@@ -36,7 +52,7 @@ const notes2D = [];
 for (let j = 0; j < 100; j++) {
   notes2D[j] = [];
   for (let i = 0; i < KEY_NUM; i++) {
-    notes2D[j].push(false);
+    notes2D[j].push(0);
   }
 }
 

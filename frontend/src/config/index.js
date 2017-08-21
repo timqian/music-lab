@@ -14,3 +14,9 @@ export const NUM_KEY_MAP = [
     // 'C9', 'C#9', 'D9', 'D#9', 'E9', 'F9', 'F#9', 'G9', 'G#9', 'A9', 'A#9', 'B9',
     // 'C10', 'C#10', 'D10', 'D#10', 'E10', 'F10', 'F#10', 'G10',
 ];
+
+const tmpEmptyRow = [];
+for (let i = 0; i < KEY_NUM; i++ ){
+    tmpEmptyRow.push(0);
+}
+export const emptyRow = tmpEmptyRow;

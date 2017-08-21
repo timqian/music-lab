@@ -2,43 +2,24 @@
    /* text-align: center;  */
    user-select: none;
    height:100%;
+   --border-width: 1px;
+   display: flex;
+   background-color: #08131b;
 }
 
 .App-header {
-  position: fixed; 
-  z-index: 2;
-  background-color: black;
-  width: 100%;
+  width: 200px;
+  min-width: 150px;
   color: whitesmoke;
-  top: 0; 
+  top: 0;
   font-size: 30px;
   padding-left: 20px;
-  height: 35px;
+  height: 100vh;
 }
 
-.board {
-  position: fixed; 
-  z-index: 2;
-  text-align: center; 
-  background-color: black;  
-  width: 100%; 
-  top: 35px; 
-  padding-top: 10px;
-  white-space: nowrap;
-  height: 87px;
-}
-
-.soundFlow {
-  text-align: center;
-  /* white-space: nowrap; */
-  margin-top: 132px;
-  width: 100%;
-  height: 650px;
-  overflow-y: scroll;
-}
-
-.keyboardFlow {
-  background-color: gray;
-  height: 15000px;
+#Song {
+   flex: 1;
+   font-size: 0;
+   margin-top: 4vh;
 }
 

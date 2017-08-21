@@ -1,13 +1,12 @@
 .Row {
+   --border-width: 1px;
    display: inline-block;
-   border-bottom: 1px solid gray;
-   border-right: 1px solid gray;
+   border-right: var(--border-width) solid gray;
    /*
         prevent line to be breaked by white space
         https://developer.mozilla.org/en-US/docs/Web/CSS/white-space
    */
-   white-space: nowrap; 
-
+   white-space: nowrap;
 }
 
 .cellWrapper {
@@ -18,10 +17,10 @@
 
 .writeCell {
     display: inline-block;
-    width: 24px;
-    height: 24px;
-    /* background-color: white; */
-    border-left: 1px solid gray;
+    width: 26px;
+    height: 20px;
+    background-color: white;
+    border-left: var(--border-width) solid gray;
 
 }
 
@@ -29,9 +28,73 @@
     position: absolute;
     top:0;
     z-index: 1;
-    left: 19px; 
-    width: 11px;
-    height: 24px;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    left: 20px; 
+    width: 13px;
+    height: 20px;
+    border-left: var(--border-width) solid #ddd;
+    border-right: var(--border-width) solid #ddd;
+    /* background-color: white; */
+}
+
+.cell {
+    border-top: var(--border-width) solid gray;
+    box-sizing:  border-box;
+}
+
+.cell:hover {
+    cursor:Pointer; 
+    background-color: gray;
+}
+
+.cell.onPressContinue {
+    /* background-color: red; */
+    border-top: 0;
+}
+
+.C.onPress {
+    background-color: red; 
+}
+
+.Csharp.onPress {
+    background-color: orangered;
+}
+
+.D.onPress {
+    background-color: orange;
+}
+
+.Dsharp.onPress {
+    background-color: #ffcc00;
+}
+
+.E.onPress {
+    background-color: yellow;
+}
+
+.F.onPress {
+    background-color: greenyellow;
+}
+
+.Fsharp.onPress {
+    background-color: green;
+}
+
+.G.onPress {
+    background-color: cyan;
+}
+
+.Gsharp.onPress {
+    background-color: blue;
+}
+
+.A.onPress {
+    background-color: blueviolet;
+}
+
+.Asharp.onPress {
+    background-color: violet;
+}
+
+.B.onPress {
+    background-color: magenta;
 }

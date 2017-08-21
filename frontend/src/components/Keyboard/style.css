@@ -1,34 +1,42 @@
-.keyboard {
+.Keyboard {
+    --border-color: black;
+    --border-width: 1px;
     display: inline-block;
-    border-right: 1px solid gray;
-    border-bottom: 1px solid gray;  
+    border-right: var(--border-width) solid var(--border-color);
+    border-bottom: var(--border-width) solid black;  
+    white-space: nowrap;
 }
 
 .keyWrapper {
+    white-space: nowrap;
     position: relative;
     display: inline-block; 
+    border-bottom: 1px solid var(--border-color);  
 }
 
 .writeKey {
     display: inline-block;
-    width: 24px;
-    height: 80px;
+    width: 26px;
+    height: 10vh; 
     background-color: white;
-    border-left: 1px solid gray;
-
+    border-left: var(--border-width) solid var(--border-color);
 }
 
 .blackKey {
     position: absolute;    
     z-index: 1;
     top: 0;
-    left: 19px; 
-    width: 11px;
-    height: 48px;
+    left: 20px; 
+    width: 13px;
+    height: 6vh;
     background-color: black;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    border-bottom: 1px solid gray;
+    border-left: 1px solid black;
+    border-right: var(--border-width) solid var(--border-color);
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.key {
+    box-sizing:  border-box;
 }
 
 .key.C {
@@ -79,51 +87,51 @@
     border-top: 5px solid magenta;
 }
 
-.C.onPress, .C:hover {
+.key.C:hover {
     background-color: red; cursor:Pointer;
 }
 
-.Csharp.onPress, .Csharp:hover {
+.key.Csharp:hover {
     background-color: orangered; cursor:Pointer;
 }
 
-.D.onPress, .D:hover {
+.key.D:hover {
     background-color: orange; cursor:Pointer;
 }
 
-.Dsharp.onPress, .Dsharp:hover {
+.key.Dsharp:hover {
     background-color: #ffcc00; cursor:Pointer;
 }
 
-.E.onPress, .E:hover {
+.key.E:hover {
     background-color: yellow; cursor:Pointer;
 }
 
-.F.onPress, .F:hover {
+.key.F:hover {
     background-color: greenyellow; cursor:Pointer;
 }
 
-.Fsharp.onPress, .Fsharp:hover {
+.key.Fsharp:hover {
     background-color: green; cursor:Pointer;
 }
 
-.G.onPress, .G:hover {
+.key.G:hover {
     background-color: cyan; cursor:Pointer;
 }
 
-.Gsharp.onPress, .Gsharp:hover {
+.key.Gsharp:hover {
     background-color: blue; cursor:Pointer;
 }
 
-.A.onPress, .A:hover {
+.key.A:hover {
     background-color: blueviolet; cursor:Pointer;
 }
 
-.Asharp.onPress, .Asharp:hover {
+.key.Asharp:hover {
     background-color: violet; cursor:Pointer;
 }
 
-.B.onPress, .B:hover {
+.key.B:hover {
     background-color: magenta; cursor:Pointer;
 }
 
