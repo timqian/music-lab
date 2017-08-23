@@ -53,7 +53,7 @@ example: https://www.graph.cool/docs/reference/auth/permission-queries-iox3aqu0e
 
 - [ ] user center
 - [ ] 广场（other people's work
-- [ ]scroll bar 移过来
+- [ ] scroll bar 移过来
 
 ## UI ref
 
