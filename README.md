@@ -63,3 +63,9 @@ graphcool
 ## To learn
 
 flex box 布局
+
+## add build script
+
+1. build 
+2. remove source map(both css and js)
+3. move to root
