@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          Music lab <br/>
+          Yiin Cloud<br/>
           <button onClick={() => store.isPlaying = !store.isPlaying}>play</button>
         </div>
         <div id="Song">
