@@ -15,15 +15,17 @@ export function release(i) {
 }
 
 export function attackRow (currentRow, lastRow) {
-    const attackArr = [];
-    const releaseArr = [];
-    for (let i = 0; i < currentRow.length; i++) {
-        if(currentRow[i] !== 0 && currentRow[i] !== lastRow[i]) attackArr.push(NUM_KEY_MAP[i]);
-        if(currentRow[i] === 0) releaseArr.push(NUM_KEY_MAP[i]);
+    if(currentRow) {
+        const attackArr = [];
+        const releaseArr = [];
+        for (let i = 0; i < currentRow.length; i++) {
+            if(currentRow[i] !== 0 && (!lastRow || currentRow[i] !== lastRow[i])) attackArr.push(NUM_KEY_MAP[i]);
+            if(currentRow[i] === 0) releaseArr.push(NUM_KEY_MAP[i]);
+        }
+        
+        polySynth.triggerAttackRelease(attackArr);
+        polySynth.triggerRelease(releaseArr);
     }
-    
-    polySynth.triggerAttackRelease(attackArr);
-    polySynth.triggerRelease(releaseArr);
 }
 // attack(30);
 // attack(30);

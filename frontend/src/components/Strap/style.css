@@ -1,4 +1,4 @@
-.rowWrapper {
+.strap {
       /* white-space: nowrap; */
       /* height: 120 */
       /*
@@ -8,4 +8,9 @@
       font-size: 0;
       height: 85vh;
       overflow-y: scroll;
+      /* padding-bottom: 85vh; */
+}
+
+.whiteSpace {
+    height: 85vh;
 }

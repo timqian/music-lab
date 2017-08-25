@@ -27,17 +27,19 @@ export default class Strap extends Component {
         });
 
         function handleScroll() {
-            const currentPosition = document.querySelector('.rowWrapper').scrollTop;
+            const currentPosition = document.querySelector('.strap').scrollTop;
             // FIXME: 20 is the height of cell defined both here and in css; need to find a better way to find the currentRow
-            const currentRow = Math.floor(currentPosition / 20);
+            const currentRow = Math.floor((currentPosition-1) / 20);
             store.currentRow = currentRow;
         }
         return (
-            <div className="rowWrapper" 
+            <div className="strap" 
                 onScroll={() => handleScroll()} 
-
             >
                 {rowArr}
+                <div className="whiteSpace"> 
+                    <button> add  </button>
+                </div>
             </div>
         )
     }

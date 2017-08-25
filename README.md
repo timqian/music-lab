@@ -31,26 +31,22 @@ examples in the readme of https://github.com/mudcube/MIDI.js
 example: https://www.graph.cool/docs/reference/auth/permission-queries-iox3aqu0ee/
 
 ## TODO
-- [ ] key binding！！！
-- [ ] soundStrap 到底
-- [ ] 布局改成pannel形式
+- [x] soundStrap 到底
+- [x] 第一行问题(没有 last row 的 Row unplayable)
 - [x] hit 时变色
-- [ ] 第一行问题(没有 last row 的 Row unplayable)
+- [x] 布局改成pannel形式
+- [ ] change the way scrolling (currently speed not right)
 - [ ] add more rows
+- [ ] key binding！！！
 - [ ] 反向 play
-
 - [ ] option to hide black keys
-
 - [ ] convert midi
 - [ ] login
 - [ ] save notes
 - [ ] share
-
 - [ ] more instruments!!!
 - [ ] add voice
-
 - [ ] repeat rows
-
 - [ ] user center
 - [ ] 广场（other people's work
 - [ ] scroll bar 移过来
