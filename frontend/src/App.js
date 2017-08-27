@@ -14,8 +14,17 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          Yiin Cloud<br/>
-          <button onClick={() => store.isPlaying = !store.isPlaying}>play</button>
+          Yiin Cloud<br />
+          <button onClick={() => store.isPlaying = !store.isPlaying}>{`playing: ${store.isPlaying}`}</button><br />
+          <button onClick={() => {
+            store.keyboardRecordMode = !store.keyboardRecordMode;
+            if (store.keyboardRecordMode) {
+              store.isPlaying = true;
+            } else {
+              store.isPlaying = false;
+            }
+
+          }}>{`recording from keyboard: ${store.keyboardRecordMode}`}</button>
         </div>
         <div id="Song">
           <Song store={store} />

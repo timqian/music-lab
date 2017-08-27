@@ -3,7 +3,9 @@
 import React, { Component } from 'react';
 import './style.css';
 import { attack, release } from '../../utils/notePlayer.js';
+import { observer } from 'mobx-react';
 
+@observer
 export default class Board extends Component {
     componentDidMount() {
         document.querySelectorAll(`.key`)
@@ -27,7 +29,6 @@ export default class Board extends Component {
         const isMouseDown = this.props.isMouseDown;
 
         function handleMouseOver(i) {
-            console.log('is mouse down', isMouseDown);
             if (isMouseDown) {
                 attack(i);
             }

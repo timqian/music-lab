@@ -23,7 +23,7 @@ export function attackRow (currentRow, lastRow) {
             if(currentRow[i] === 0) releaseArr.push(NUM_KEY_MAP[i]);
         }
         
-        polySynth.triggerAttackRelease(attackArr);
+        polySynth.triggerAttackRelease(attackArr, '2n');
         polySynth.triggerRelease(releaseArr);
     }
 }

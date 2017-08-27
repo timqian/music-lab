@@ -10,12 +10,20 @@ class Song extends Component {
     render() {
         const store = this.props.store;
 
+        let pressedArr;
+        if( store.currentRow === -1) {
+            pressedArr = store.pressedNotes;
+        } else {
+            pressedArr = store.notes2D[store.currentRow]
+        }
         return (
             <div onMouseDown={() => store.isMouseDown = true}
                 onMouseUp={() => store.isMouseDown = false}
+                className="Song"
             >
-                <Keyboard pressedArr={store.notes2D[store.currentRow]} isMouseDown={store.isMouseDown} />
+                {!store.keyboardRecordMode ? <Keyboard pressedArr={pressedArr} isMouseDown={store.isMouseDown} /> : <div></div>}
                 <Strap store={store} />
+                {store.keyboardRecordMode ? <Keyboard pressedArr={pressedArr} isMouseDown={store.isMouseDown} /> : <div></div>}
             </div>
         )
     }

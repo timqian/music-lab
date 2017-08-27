@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './style.css';
 import Row from './Row';
-import { emptyRow } from '../../config';
 import { observer } from 'mobx-react';
+import { KEY_NUM } from '../../config';
 
 @observer
 export default class Strap extends Component {
@@ -11,6 +11,10 @@ export default class Strap extends Component {
         const notes2D = this.props.store.notes2D;
 
         const rowArr = notes2D.map((notes, i, notes2D) => {
+            const emptyRow = [];
+            for (let i = 0; i < KEY_NUM; i++) {
+                emptyRow.push(0);
+            }
             const lastRow = notes2D[i - 1] ? notes2D[i - 1] : emptyRow;
 
             // TODO: add add button
@@ -29,17 +33,28 @@ export default class Strap extends Component {
         function handleScroll() {
             const currentPosition = document.querySelector('.strap').scrollTop;
             // FIXME: 20 is the height of cell defined both here and in css; need to find a better way to find the currentRow
-            const currentRow = Math.floor((currentPosition-1) / 20);
+            const currentRow = Math.floor((currentPosition - 1) / 20);
             store.currentRow = currentRow;
         }
         return (
-            <div className="strap" 
-                onScroll={() => handleScroll()} 
+            <div className="strap"
+                onScroll={() => handleScroll()}
             >
+            {store.keyboardRecordMode ? (<div className="whiteSpace"></div>) : (<div></div>)}
+
                 {rowArr}
-                <div className="whiteSpace"> 
-                    <button> add  </button>
-                </div>
+                <button onClick={() => {
+                    const notes2Add = [];
+                    for (let j = 0; j < 50; j++) {
+                        notes2Add[j] = [];
+                        for (let i = 0; i < KEY_NUM; i++) {
+                            notes2Add[j].push(0);
+                        }
+                    }
+                    console.log(notes2Add.length, 'notes to add length');
+                    store.notes2D.push(...notes2Add);
+                }}> add  </button>
+                {!store.keyboardRecordMode ? <div className="whiteSpace"></div> : (<div></div>)}
             </div>
         )
     }

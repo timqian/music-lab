@@ -35,9 +35,8 @@ example: https://www.graph.cool/docs/reference/auth/permission-queries-iox3aqu0e
 - [x] 第一行问题(没有 last row 的 Row unplayable)
 - [x] hit 时变色
 - [x] 布局改成pannel形式
-- [ ] change the way scrolling (currently speed not right)
-- [ ] add more rows
-- [ ] key binding！！！
+- [x] add more rows
+- [x] key binding！！！
 - [ ] 反向 play
 - [ ] option to hide black keys
 - [ ] convert midi
@@ -50,6 +49,7 @@ example: https://www.graph.cool/docs/reference/auth/permission-queries-iox3aqu0e
 - [ ] user center
 - [ ] 广场（other people's work
 - [ ] scroll bar 移过来
+- [ ] change the way scrolling (currently speed not right)
 
 ## UI ref
 
