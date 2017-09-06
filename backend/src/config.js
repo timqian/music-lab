@@ -20,6 +20,7 @@ const config = {
     SIGNUP_SUCCESS: 'signup success',
     NAME_TAKEN: 'Name or email has been taken',
     USER_NOT_FOUND: 'User not found',
+    EMAIL_NOT_FOUND: 'Email not found',
     WRONG_PASSWORD: 'wrong password',
     LOGIN_SUCCESS: 'Enjoy your token!',
     NEED_EMAIL_VERIFICATION: 'You need to verify your email first',
@@ -27,4 +28,4 @@ const config = {
 
 };
 
-export default config;
+module.exports = config;

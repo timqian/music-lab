@@ -1,8 +1,8 @@
-import router from './router';
-import verifyToken from './utils/verifyToken';
-import config from './config';
+const router= require('./router');
+const verifyToken= require('./utils/verifyToken');
+const config= require('./config');
 
-export default {
+module.exports =  {
   init: () => {
 
     console.log(config);

@@ -3,10 +3,10 @@
  * NOTE: only with jsonParser,
  */
 
-import jwt from 'jsonwebtoken';
-import config from '../config';
+const jwt= require('jsonwebtoken');
+const config= require('../config');
 
-export default function (req, res, next) {
+module.exports =  function (req, res, next) {
 
   // check header or url parameters or post parameters for token
   const token = req.body.token || req.query.token ||

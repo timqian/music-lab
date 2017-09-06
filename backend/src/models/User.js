@@ -1,5 +1,5 @@
 // get an instance of mongoose and mongoose.Schema
-import mongoose from 'mongoose';
+const mongoose= require('mongoose');
 const Schema = mongoose.Schema;
 
 // set up a mongoose model and export
@@ -10,4 +10,4 @@ const User = mongoose.model('User', new Schema({
   verified: Boolean,
 }));
 
-export default User;
+module.exports =  User;

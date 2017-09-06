@@ -1,23 +1,37 @@
-import createToken from '../utils/createToken';
-import sendMail from '../utils/sendMail';
-import User from '../models/User';
-import { hashPassword } from '../utils/crypts';
-import config from '../config';
+const createToken = require('../utils/createToken');
+const sendMail = require('../utils/sendMail');
+const User = require('../models/User');
+const { hashPassword } = require('../utils/crypts');
+const config = require('../config');
+const daos = require('../daos');
 
 
-export default async function(req, res) {
+module.exports = async function (req, res) {
   const { email, name, password } = req.body;
 
-  if ( !name || !password || !email ) {
-    res.status(400).json({ success: false, message: 'info not enough', });
+  if (!name || !password || !email) {
+    res.status(400).json({ success: false, message: 'Should provide email, name and password', });
+    return;
   }
 
   // see if name or email is occupied
-  const user = await User.findOne({ $or: [ { name }, { email } ] });
+  const user = await daos.User.get(name);
+  const userEmail = await daos.Email.get(email);
 
-  if (!user) {
+  if (!user && !userEmail) {
     const hashedPassword = await hashPassword(password);
-    await new User({ email, name, password: hashedPassword, verified: false }).save();
+    console.log('$signup', hashedPassword, name);
+    await daos.User.put({ 
+      name, 
+      hashedPassword 
+    });
+
+    const verified = false;
+    await daos.Email.put({
+      email,
+      name,
+      verified: false,
+    });
 
     console.log('____User saved');
 
@@ -29,7 +43,8 @@ export default async function(req, res) {
       `<a href="${verifyAddress}">
          Click to verify your email address.
       </a>`;
-    
+
+    // send mail asyncly
     sendMail(email, content).then(info => {
       console.log(`Email to ${email} sent: ` + info.response);
     }).catch((err) => {
@@ -42,5 +57,4 @@ export default async function(req, res) {
     console.log('____User not saved, name or email has been taken');
     res.status(400).json({ success: false, message: config.USER_MESSAGE.NAME_TAKEN, });
   }
-
 }

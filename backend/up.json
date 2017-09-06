@@ -1,3 +1,9 @@
 {
-  "profile": "timqian'sUp"
+  "profile": "timqian'sUp",
+  "hooks": {
+    "build": "make"
+  },
+  "proxy": {
+    "command": "./node-v8.4.0-linux-x64/bin/node app.js"
+  }
 }

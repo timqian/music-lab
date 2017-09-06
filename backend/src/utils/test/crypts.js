@@ -1,4 +1,4 @@
-import { hashPassword, checkPassword} from '../crypts';
+const { hashPassword, checkPassword}= require('../crypts');
 
 (async function() {
   const passHash = await hashPassword('123');

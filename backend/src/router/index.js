@@ -1,9 +1,9 @@
-import { Router } from 'express';
-import signup from './signup';
-import login from './login';
-import email_verification from './email_verification';
-import password_reset from './password_reset';
-import verifyToken from '../utils/verifyToken';
+const { Router }= require('express');
+const signup= require('./signup');
+const login= require('./login');
+const email_verification= require('./email_verification');
+const password_reset= require('./password_reset');
+const verifyToken= require('../utils/verifyToken');
 
 const router = new Router();
 
@@ -12,4 +12,4 @@ router.get('/email_verification', verifyToken, email_verification);
 router.post('/login', login);
 router.post('/password_reset', password_reset);
 
-export default router;
+module.exports =  router;

@@ -2,6 +2,7 @@
   "name": "yiin-cloud-backend",
   "main": "app.js",
   "dependencies": {
+    "aws-sdk": "^2.108.0",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",
     "es6-promisify": "^5.0.0",
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "pretest": "mongo database --eval 'db.dropDatabase()'",
-    "test": "mocha --recursive --compilers js:babel-register --timeout 15000",
+    "test": "mocha --recursive --require babel-register --timeout 15000",
     "babel-node": "babel-node --presets=/*a*/ --ignore='foo|bar|baz'",
     "start": "nodemon --exec babel-node --presets=env -- app.js"
   },

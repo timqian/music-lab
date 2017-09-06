@@ -1,5 +1,5 @@
-import { genSalt, hash, compare } from 'bcrypt';
-import promisify from 'es6-promisify';
+const { genSalt, hash, compare }= require('bcrypt');
+const promisify= require('es6-promisify');
 
 const genSaltAsync = promisify(genSalt);
 const hashAsync = promisify(hash);

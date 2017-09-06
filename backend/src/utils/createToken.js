@@ -1,6 +1,6 @@
-import jwt from 'jsonwebtoken';
-import config from '../config';
+const jwt= require('jsonwebtoken');
+const config= require('../config');
 
-export default function(payload, expiresIn) {
+module.exports =  function(payload, expiresIn) {
   return jwt.sign(payload, config.SECRET, { expiresIn });
 }

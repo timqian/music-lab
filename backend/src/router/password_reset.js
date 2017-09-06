@@ -1,25 +1,29 @@
-import  User    from '../models/User'; // get our mongoose model
-import createToken from '../utils/createToken';
-import { hashPassword } from '../utils/crypts';
-import sendMail from '../utils/sendMail';
-import config from '../config';
+const  User   = require('../models/User'); // get our mongoose model
+const createToken= require('../utils/createToken');
+const { hashPassword }= require('../utils/crypts');
+const sendMail= require('../utils/sendMail');
+const config= require('../config');
+const daos = require('../daos');
 
-export default async function(req, res) {
+module.exports =  async function(req, res) {
 
   const { email, password } = req.body;
-  const user = await User.findOne( { email } );
+  // const user = await User.findOne( { email } );
+  const userEmail = await daos.Email.get(email);
+  const user = await daos.User.get(userEmail.name);
 
   if (!user) {
     res.status(400).json({ success: false, message: config.USER_MESSAGE.USER_NOT_FOUND });
   } else {
     const hashedPassword = await hashPassword(password);
-    const token = createToken({ name:user.name, hashedPassword }, config.EMAIL_TOKEN_EXPIRES_IN);
+    const token = createToken({ email:userEmail.email, hashedPassword }, config.EMAIL_TOKEN_EXPIRES_IN);
     const verifyAddress =
       `${config.API_URL}/email_verification/?token=${token}`;
     const content = `<a href="${verifyAddress}">
       Click to change your password.
-    </a>`;
+    </a><br/> NOTE: don't click it if you did not want to change password`;
 
+    // send mail asyncly
     sendMail(email, content).then(info => {
       console.log(`Email to ${email} sent: ` + info.response);
     }).catch((err) => {
