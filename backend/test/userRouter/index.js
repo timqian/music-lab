@@ -1,12 +1,10 @@
-require('babel-polyfill');
-
-import config from './testConfig';
-import axios from 'axios';
-import login from './login';
-import signup from './signup';
-import passwordReset from './password_reset';
-import needingToken from './needingToken';
-import needingTokenAndEmailVerified from './needingTokenAndEmailVerified';
+const config = require('../testConfig');
+const axios = require('axios');
+const login = require('./login');
+const signup = require('./signup');
+const passwordReset = require('./password_reset');
+const needingToken = require('./needingToken');
+const needingTokenAndEmailVerified = require('./needingTokenAndEmailVerified');
 
 describe('Test starts', function () {
 
@@ -14,8 +12,7 @@ describe('Test starts', function () {
   before(async function() {
 
     // TODO: clean the database
-
-    await axios.post(`${config.BASEURL}/signup`, {
+    await axios.post(`${config.BASEURL}/user/signup`, {
       email: `${config.EMAIL_RECEIVING_VERIFICATION}`,
       name: `tim`,
       password: '123',

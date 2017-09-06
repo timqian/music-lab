@@ -3,29 +3,22 @@
   "main": "app.js",
   "dependencies": {
     "aws-sdk": "^2.108.0",
-    "bcrypt": "^1.0.3",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "es6-promisify": "^5.0.0",
     "express": "^4.15.4",
     "express-graphql": "^0.6.7",
     "jsonwebtoken": "^7.4.3",
     "method-override": "^2.3.9",
-    "mongoose": "^4.11.9",
     "morgan": "^1.8.2",
     "nodemailer": "^4.1.0"
   },
   "devDependencies": {
-    "axios": "^0.16.2",
-    "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "babel-register": "^6.26.0"
+    "axios": "^0.16.2"
   },
   "scripts": {
-    "pretest": "mongo database --eval 'db.dropDatabase()'",
-    "test": "mocha --recursive --require babel-register --timeout 15000",
-    "babel-node": "babel-node --presets=/*a*/ --ignore='foo|bar|baz'",
-    "start": "nodemon --exec babel-node --presets=env -- app.js"
+    "test": "mocha --recursive --timeout 15000",
+    "start": "nodemon app.js"
   },
   "author": "timqian",
   "license": "ISC"

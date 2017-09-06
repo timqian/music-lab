@@ -1,14 +1,14 @@
-import axios from 'axios';
-import assert from 'assert';
-import config from './testConfig';
+const axios = require('axios');
+const assert = require('assert');
+const config = require('../testConfig');
 
-export default function password_reset() {
+module.exports = function password_reset() {
   describe('GET /needingToken', function () {
 
     let token = '';
 
     before(async function() {
-      const loginRes = await axios.post(`${config.BASEURL}/login`, {
+      const loginRes = await axios.post(`${config.BASEURL}/user/login`, {
         name: 'tim',
         password: '123',
       }).catch((err) => { throw err.response.data;});

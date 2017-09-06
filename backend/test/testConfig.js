@@ -5,4 +5,4 @@ const testConfig = {
   EMAIL_RECEIVING_VERIFICATION: 'timqian92@qq.com',
 };
 
-export default testConfig;
+module.exports = testConfig;

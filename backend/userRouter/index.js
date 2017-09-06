@@ -3,7 +3,7 @@ const signup= require('./signup');
 const login= require('./login');
 const email_verification= require('./email_verification');
 const password_reset= require('./password_reset');
-const verifyToken= require('../utils/verifyToken');
+const verifyToken= require('../middleware/verifyToken');
 
 const router = new Router();
 

@@ -6,7 +6,6 @@ async function get(name) {
         TableName: 'User',
         Key: { name },
     }).promise();
-    console.log(obj, '$#$#');
     return obj.Item;
 }
 
@@ -19,5 +18,5 @@ function put({ name, hashedPassword }) {
 
 module.exports = {
     get,
-    put
+    put,
 }

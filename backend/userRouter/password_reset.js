@@ -1,4 +1,3 @@
-const  User   = require('../models/User'); // get our mongoose model
 const createToken= require('../utils/createToken');
 const { hashPassword }= require('../utils/crypts');
 const sendMail= require('../utils/sendMail');

@@ -1,4 +1,3 @@
-const User = require('../models/User');
 const daos = require('../daos');
 
 // set email verified

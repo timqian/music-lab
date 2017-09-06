@@ -1,6 +1,5 @@
 const createToken = require('../utils/createToken');
 const sendMail = require('../utils/sendMail');
-const User = require('../models/User');
 const { hashPassword } = require('../utils/crypts');
 const config = require('../config');
 const daos = require('../daos');
@@ -20,7 +19,6 @@ module.exports = async function (req, res) {
 
   if (!user && !userEmail) {
     const hashedPassword = await hashPassword(password);
-    console.log('$signup', hashedPassword, name);
     await daos.User.put({ 
       name, 
       hashedPassword 

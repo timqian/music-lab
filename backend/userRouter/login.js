@@ -1,4 +1,3 @@
-const User = require('../models/User'); // get our mongoose model
 const createToken = require('../utils/createToken');
 const { checkPassword } = require('../utils/crypts');
 const config = require('../config');
@@ -17,25 +16,25 @@ module.exports = async function (req, res) {
 
   if (email) {
     const userEmail = await daos.Email.get(email);
-    console.log('$$$$', userEmail);
     if (!userEmail) {
       res.status(400).json({ success: false, message: config.USER_MESSAGE.EMAIL_NOT_FOUND });
+      return;
     }
     name = userEmail.name;
-    console.log('$$$$', name);
   }
 
   const user = await daos.User.get(name);
-  console.log('$$$$', user);
 
   if (!user) {
     res.status(400).json({ success: false, message: config.USER_MESSAGE.USER_NOT_FOUND });
+    return;
   } else if (user) {
 
     // check if password matches
     const result = await checkPassword(password, user.hashedPassword);
     if (!result) {
       res.status(400).json({ success: false, message: config.USER_MESSAGE.WRONG_PASSWORD });
+      return;
     } else {
       // if user is found and password is right
       // create a token

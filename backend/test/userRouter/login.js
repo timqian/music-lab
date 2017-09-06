@@ -1,12 +1,12 @@
-import axios from 'axios';
-import assert from 'assert';
-import config from './testConfig';
+const axios = require('axios');
+const assert = require('assert');
+const config = require('../testConfig');
 
-export default function login() {
+module.exports = function login() {
   describe('POST /login', function () {
 
     it('name login', function () {
-      return axios.post(`${config.BASEURL}/login`, {
+      return axios.post(`${config.BASEURL}/user/login`, {
         name: 'tim',
         password: '123',
       }).then((res) => {
@@ -15,7 +15,7 @@ export default function login() {
     });
 
     it('email login', function () {
-      return axios.post(`${config.BASEURL}/login`, {
+      return axios.post(`${config.BASEURL}/user/login`, {
         email: `${config.EMAIL_RECEIVING_VERIFICATION}`,
         password: '123',
       }).then((res) => {
@@ -24,7 +24,7 @@ export default function login() {
     });
 
     it('wrong user name', function () {
-      return axios.post(`${config.BASEURL}/login`, {
+      return axios.post(`${config.BASEURL}/user/login`, {
         name: `tim${Date.now()}`,
         password: '123',
       }).then((res) => {
@@ -36,7 +36,7 @@ export default function login() {
     });
 
     it('wrong email', function () {
-      return axios.post(`${config.BASEURL}/login`, {
+      return axios.post(`${config.BASEURL}/user/login`, {
         email: `tim${Date.now()}@qq.com`,
         password: '123',
       }).then((res) => {
@@ -48,7 +48,7 @@ export default function login() {
     });
 
     it('wrong password with name', function () {
-      return axios.post(`${config.BASEURL}/login`, {
+      return axios.post(`${config.BASEURL}/user/login`, {
         name: `tim`,
         password: '1234',
       }).then((res) => {
@@ -60,7 +60,7 @@ export default function login() {
     });
 
     it('wrong password with email', function () {
-      return axios.post(`${config.BASEURL}/login`, {
+      return axios.post(`${config.BASEURL}/user/login`, {
         email: `${config.EMAIL_RECEIVING_VERIFICATION}`,
         password: '1234',
       }).then((res) => {

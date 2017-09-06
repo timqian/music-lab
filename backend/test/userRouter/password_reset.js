@@ -1,13 +1,13 @@
-import axios from 'axios';
-import assert from 'assert';
-import config from './testConfig';
+const axios = require('axios');
+const assert = require('assert');
+const config = require('../testConfig');
 
-export default function password_reset() {
+module.exports = function password_reset() {
 
   describe('POST /password_reset', function () {
 
     it('reset success', () => {
-      return axios.post(`${config.BASEURL}/password_reset`, {
+      return axios.post(`${config.BASEURL}/user/password_reset`, {
         email: `${config.EMAIL_RECEIVING_VERIFICATION}`,
         password: '123',
       }).then((res) => {
