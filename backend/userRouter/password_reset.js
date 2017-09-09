@@ -17,7 +17,7 @@ module.exports =  async function(req, res) {
     const hashedPassword = await hashPassword(password);
     const token = createToken({ email:userEmail.email, hashedPassword }, config.EMAIL_TOKEN_EXPIRES_IN);
     const verifyAddress =
-      `${config.API_URL}/email_verification/?token=${token}`;
+      `${config.API_URL}/user/email_verification/?token=${token}`;
     const content = `<a href="${verifyAddress}">
       Click to change your password.
     </a><br/> NOTE: don't click it if you did not want to change password`;

@@ -36,7 +36,7 @@ module.exports = async function (req, res) {
     // send verification email
     const token = createToken({ name });
     const verifyAddress =
-      `${config.API_URL}/email_verification/?token=${token}`;
+      `${config.API_URL}/user/email_verification/?token=${token}`;
     const content =
       `<a href="${verifyAddress}">
          Click to verify your email address.
