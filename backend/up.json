@@ -1,5 +1,8 @@
 {
   "profile": "timqian'sUp",
+  "environment": {
+    "ON_LAMBDA": "true"
+  },
   "hooks": {
     "build": "make"
   },

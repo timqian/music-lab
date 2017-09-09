@@ -10,8 +10,9 @@ https://github.com/apex/up-examples/tree/master/oss/node-8
 
 ## TODO:
 
-- [ ] replace mongo with dynamo
-- [ ] compile code before push to lambda
+- [x] replace mongo with dynamo
+- [x] use node8 on lambda
+- [x] write config for lambda (danamodb url etc.)
 
 ## Good pratise
 

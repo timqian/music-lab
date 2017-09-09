@@ -17,7 +17,7 @@
     "axios": "^0.16.2"
   },
   "scripts": {
-    "test": "mocha --recursive --timeout 15000",
+    "test": "mocha --recursive --timeout 30000",
     "start": "nodemon app.js"
   },
   "author": "timqian",

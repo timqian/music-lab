@@ -11,6 +11,8 @@ describe('Test starts', function () {
   // signup initial user
   before(async function() {
 
+    console.log('Base URL: ', config.BASEURL);
+    
     // TODO: clean the database
     await axios.post(`${config.BASEURL}/user/signup`, {
       email: `${config.EMAIL_RECEIVING_VERIFICATION}`,
