@@ -6,15 +6,23 @@ async function get(name) {
         TableName: 'User',
         Key: { name },
     }).promise();
+
     return obj.Item;
 }
 
-function put({ name, hashedPassword }) {
+function put({ name, email, emailVerified, hashedPassword }) {
     return docClient.put({
         TableName: 'User',
-        Item: { name, hashedPassword },
+        Item: {
+            name,
+            email,
+            emailVerified,
+            hashedPassword,
+        },
+
     }).promise();
 }
+
 
 module.exports = {
     get,

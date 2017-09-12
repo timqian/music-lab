@@ -1,3 +1,5 @@
+const daos = require('../../daos');
+
 const resolvers = {
     Query: {
         // posts() {

@@ -19,7 +19,7 @@
     "axios": "^0.16.2"
   },
   "scripts": {
-    "pretest": "node scripts/createTables.js",
+    "pretest": "node scripts/deleteTable.js && node scripts/createTables.js",
     "test": "mocha --recursive --timeout 30000",
     "start": "nodemon app.js -e js,graphql,json"
   },

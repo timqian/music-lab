@@ -15,20 +15,20 @@ module.exports = async function (req, res) {
 
   // see if name or email is occupied
   const user = await daos.User.get(name);
-  const userEmail = await daos.Email.get(email);
+  const userEmail = await daos.UserEmail.get(email);
 
   if (!user && !userEmail) {
     const hashedPassword = await hashPassword(password);
     await daos.User.put({ 
       name, 
-      hashedPassword 
+      email,
+      hashedPassword,
+      emailVerified: false,
     });
 
-    const verified = false;
-    await daos.Email.put({
+    await daos.UserEmail.put({
       email,
       name,
-      verified: false,
     });
 
     console.log('____User saved');

@@ -37,6 +37,7 @@ module.exports =  function (req, res, next) {
     //     success: false,
     //     message: 'No token provided.'
     // });
+
     next();
   }
 }

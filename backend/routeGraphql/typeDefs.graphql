@@ -1,10 +1,10 @@
 
 type User {
     name: String!
-    type: userType # user dao
+    # type: userType # user dao
     email: String!
     emailVerified: Boolean # email dao
-    songs: [Song]
+    songs: [Song] # store Song ID or not is a question
     stared: [Song]
     following: [User]
     # setting: UserSetting
@@ -16,8 +16,8 @@ enum userType {
 }
 
 type Song {
-    user: String!
-    name: String!
+    # user: String!
+    name: String! # userName#songName
     notes2D: String
     speed: Float
     starNum: Float

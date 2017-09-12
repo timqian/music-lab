@@ -23,7 +23,7 @@ module.exports = function password_reset() {
           throw res;
         }).catch((err) => {
           // console.log(res.data);
-          assert.equal(err.response.data.success, false, 'should be false');
+          assert.equal(err.response.status, 403);
         });
     });
 

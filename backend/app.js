@@ -19,11 +19,17 @@ app.get('/needingToken', verifyToken, (req, res) => {
 
   // send back the jwt claim directly
   const claim = req.decoded;
+  if (!claim) {
+    res.status(403).json('should needing token');
+    return;
+  }
   res.status(200).json(claim);
 });
 
 app.get('/needingTokenAndEmailVerified', verifyToken, (req, res) => {
-  if (req.decoded.verified) {
+  if (!req.decoded) {
+    res.status(403).json('should needing token');
+  } else if (req.decoded.emailVerified) {
     res.status(200).json(req.decoded);
   } else {
     res.status(400).json({

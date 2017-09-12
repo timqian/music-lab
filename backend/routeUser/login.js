@@ -15,7 +15,7 @@ module.exports = async function (req, res) {
   // const user = await User.findOne({ $or: [ { name }, { email } ] });
 
   if (email) {
-    const userEmail = await daos.Email.get(email);
+    const userEmail = await daos.UserEmail.get(email);
     if (!userEmail) {
       res.status(400).json({ success: false, message: config.USER_MESSAGE.EMAIL_NOT_FOUND });
       return;
@@ -38,7 +38,7 @@ module.exports = async function (req, res) {
     } else {
       // if user is found and password is right
       // create a token
-      const payload = { name: user.name, verified: user.verified };
+      const payload = { name: user.name, emailVerified: user.emailVerified };
       const token = createToken(payload, config.CLIENT_TOKEN_EXPIRES_IN);
 
       // return the information including token as JSON
@@ -46,7 +46,7 @@ module.exports = async function (req, res) {
         success: true,
         message: `${config.USER_MESSAGE.LOGIN_SUCCESS} ${user.name}`,
         name: user.name,
-        token: token
+        token: token,
       });
     }
   }

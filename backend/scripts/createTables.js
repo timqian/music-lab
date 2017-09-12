@@ -18,7 +18,7 @@ var dynamodb = require('./dynamodb');
 
     // ref: https://stackoverflow.com/questions/12920884/is-there-a-way-to-enforce-unique-constraint-on-a-property-field-other-than-the
     await dynamodb.createTable({
-        TableName: 'Email',
+        TableName: 'UserEmail',
         KeySchema: [{AttributeName:'email', KeyType:'HASH'}],
         AttributeDefinitions: [
             {AttributeName: 'email', AttributeType: 'S'},

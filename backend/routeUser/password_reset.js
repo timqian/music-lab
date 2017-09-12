@@ -8,7 +8,7 @@ module.exports =  async function(req, res) {
 
   const { email, password } = req.body;
   // const user = await User.findOne( { email } );
-  const userEmail = await daos.Email.get(email);
+  const userEmail = await daos.UserEmail.get(email);
   const user = await daos.User.get(userEmail.name);
 
   if (!user) {
