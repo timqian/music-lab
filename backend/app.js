@@ -1,4 +1,5 @@
-const userRouter = require('./userRouter');
+const userRouter = require('./routeUser');
+const graphqlRoute = require('./routeGraphql');
 const verifyToken = require('./middleware/verifyToken');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -32,6 +33,7 @@ app.get('/needingTokenAndEmailVerified', verifyToken, (req, res) => {
   }
 });
 
+app.use('/graphql', verifyToken, graphqlRoute);
 
 app.listen(PORT);
 console.log('API magic happens at http://localhost:', PORT);

@@ -51,7 +51,6 @@ var dynamodb = require('./dynamodb');
     // });
 })();
 
-
 // dynamodb.createTable({
 //     TableName: "Users",
 //     KeySchema: [{ AttributeName: "name", KeyType: "HASH" }],

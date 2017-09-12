@@ -18,7 +18,7 @@ module.exports =  function (req, res, next) {
     // verifies secret and checks exp
     jwt.verify(token, config.SECRET, (err, decoded) => {
       if (err) {
-        return res.json({
+        return res.status(403).json({
           success: false,
           message: 'Failed to authenticate token.'
         });
@@ -33,10 +33,10 @@ module.exports =  function (req, res, next) {
 
     // if there is no token
     // return an error
-    return res.status(403).send({
-        success: false,
-        message: 'No token provided.'
-    });
-
+    // return res.status(403).send({
+    //     success: false,
+    //     message: 'No token provided.'
+    // });
+    next();
   }
 }

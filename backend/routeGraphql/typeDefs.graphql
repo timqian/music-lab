@@ -1,0 +1,40 @@
+
+type User {
+    name: String!
+    type: userType # user dao
+    email: String!
+    emailVerified: Boolean # email dao
+    songs: [Song]
+    stared: [Song]
+    following: [User]
+    # setting: UserSetting
+}
+
+enum userType {
+    FREE
+    PRO
+}
+
+type Song {
+    user: String!
+    name: String!
+    notes2D: String
+    speed: Float
+    starNum: Float
+    isPersonal: Boolean
+}
+
+type Query {
+    user(name: String!): User!
+}
+
+# type Mutation {
+
+# }
+
+# we need to tell the server which types represent the root query
+# and root mutation types. We call them RootQuery and RootMutation by convention.
+schema {
+  query: Query
+#   mutation: Mutation
+}

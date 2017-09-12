@@ -1,2 +1,7 @@
-module.exports.User = require('./User');
-module.exports.Email = require('./Email');
+const User = require('./User');
+const Email = require('./Email');
+
+module.exports = {
+    User,
+    Email,
+}

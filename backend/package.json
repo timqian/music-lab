@@ -7,7 +7,9 @@
     "body-parser": "^1.17.2",
     "es6-promisify": "^5.0.0",
     "express": "^4.15.4",
-    "express-graphql": "^0.6.7",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.3",
+    "graphql-tools": "^1.2.2",
     "jsonwebtoken": "^7.4.3",
     "method-override": "^2.3.9",
     "morgan": "^1.8.2",
@@ -17,8 +19,9 @@
     "axios": "^0.16.2"
   },
   "scripts": {
+    "pretest": "node scripts/createTables.js",
     "test": "mocha --recursive --timeout 30000",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js -e js,graphql,json"
   },
   "author": "timqian",
   "license": "ISC"
