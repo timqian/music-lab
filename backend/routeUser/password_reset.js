@@ -7,6 +7,10 @@ const daos = require('../daos');
 module.exports =  async function(req, res) {
 
   const { email, password } = req.body;
+  if(!email || !password) {
+    res.status(400).json('email and pass is needed');
+    return;
+  }
   // const user = await User.findOne( { email } );
   const userEmail = await daos.UserEmail.get(email);
   const user = await daos.User.get(userEmail.name);

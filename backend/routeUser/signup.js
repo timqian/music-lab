@@ -34,7 +34,7 @@ module.exports = async function (req, res) {
     console.log('____User saved');
 
     // send verification email
-    const token = createToken({ name });
+    const token = createToken({ name, email });
     const verifyAddress =
       `${config.API_URL}/user/email_verification/?token=${token}`;
     const content =

@@ -13,8 +13,10 @@ https://github.com/apex/up-examples/tree/master/oss/node-8
 - [x] replace mongo with dynamo
 - [x] use node8 on lambda
 - [x] write config for lambda (danamodb url etc.)
-- [ ] add update method for user
 - [x] move email verified attribute to user dao
+- [x] add update method for user
+- [ ] return message shorter(`{success: false, message: 'abc'}` => `'abc'`)
+- [ ] add song!
 
 ## Good pratise
 
