@@ -15,8 +15,11 @@ https://github.com/apex/up-examples/tree/master/oss/node-8
 - [x] write config for lambda (danamodb url etc.)
 - [x] move email verified attribute to user dao
 - [x] add update method for user
+- [ ] try catch in router so server can always respond
 - [ ] return message shorter(`{success: false, message: 'abc'}` => `'abc'`)
 - [ ] add song!
+- [ ] send mail block event loop
+- [ ] update test flow
 
 ## Good pratise
 

@@ -1,5 +1,5 @@
 
-const docClient = require('./docClient');
+const { docClient } = require('./db');
 
 async function get(name) {
     const obj = await docClient.get({
@@ -25,16 +25,16 @@ function put({ name, email, emailVerified, hashedPassword }) {
 
 function update({ name, email, emailVerified, hashedPassword }) {
 
-    const emailExp = email ? 'email = :email,': '';
+    const emailExp = email ? 'email = :email,' : '';
     const verifiedExp = emailVerified ? 'emailVerified = :emailVerified,' : '';
     const passExp = hashedPassword ? 'hashedPassword = :hashedPassword,' : '';
 
-    const UpdateExpression = `set ${emailExp}${verifiedExp}${passExp}`.slice(0,-1);
+    const UpdateExpression = `set ${emailExp}${verifiedExp}${passExp}`.slice(0, -1);
 
     const ExpressionAttributeValues = {
-        ":email":email,
-        ":emailVerified":emailVerified,
-        ":hashedPassword":hashedPassword,
+        ":email": email,
+        ":emailVerified": emailVerified,
+        ":hashedPassword": hashedPassword,
     };
 
     return docClient.update({

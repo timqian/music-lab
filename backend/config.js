@@ -10,6 +10,8 @@ const config = {
   CLIENT_TOKEN_EXPIRES_IN: 24 * 60 * 60 * 30,          // client token expires time TODO: test expiring
   EMAIL_TOKEN_EXPIRES_IN: 24 * 60 * 60,           // email token expires time
 
+  EMAIL_RECEIVING_VERIFICATION: 'timqian92@qq.com', // used for test
+
   EMAIL_SENDER: { // used to send mail by nodemailer
     service: 'Gmail',
     auth: {

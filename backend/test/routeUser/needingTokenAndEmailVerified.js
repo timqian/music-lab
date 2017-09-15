@@ -1,6 +1,6 @@
 const axios = require('axios');
 const assert = require('assert');
-const config = require('../testConfig');
+const config = require('../../config');
 
 module.exports = function password_reset() {
 
@@ -9,7 +9,7 @@ module.exports = function password_reset() {
   describe('GET /needingTokenAndEmailVerified', function () {
 
     before(async function() {
-      const loginRes = await axios.post(`${config.BASEURL}/user/login`, {
+      const loginRes = await axios.post(`${config.API_URL}/user/login`, {
         name: 'tim',
         password: '123',
       }).catch((res) => { throw res.data; });
@@ -18,7 +18,7 @@ module.exports = function password_reset() {
     });
 
     it('should need token', function () {
-      return axios.get(`${config.BASEURL}/needingTokenAndEmailVerified`)
+      return axios.get(`${config.API_URL}/needingTokenAndEmailVerified`)
         .then((res) => {
           throw res;
         }).catch((err) => {
@@ -28,7 +28,7 @@ module.exports = function password_reset() {
     });
 
     it('should need email verified', function () {
-      return axios.get(`${config.BASEURL}/needingTokenAndEmailVerified`, {params: {token}})
+      return axios.get(`${config.API_URL}/needingTokenAndEmailVerified`, {params: {token}})
         .then((res) => { throw res; })
         .catch((err) => {
           assert.equal(err.response.status, 400);

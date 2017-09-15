@@ -9,4 +9,7 @@ AWS.config.update({
   signatureVersion: 'v4',
 });
 
-module.exports =  new AWS.DynamoDB.DocumentClient();
+module.exports =  {
+  docClient: new AWS.DynamoDB.DocumentClient(),
+  dynamoDb: new AWS.DynamoDB(),
+}

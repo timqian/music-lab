@@ -6,7 +6,7 @@ const config= require('../config');
  * to: mail
  * verifyAddress:
  */
-module.exports =  function sendMail(targetAddress, content) {
+module.exports = function sendMail(targetAddress, content) {
   // NB! No need to recreate the transporter object. You can use
   // the same transporter object for all e-mails
   const transporter = createTransport(config.EMAIL_SENDER, {

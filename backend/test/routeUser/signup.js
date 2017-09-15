@@ -1,6 +1,6 @@
 const axios = require('axios');
 const assert = require('assert');
-const config = require('../testConfig');
+const config = require('../../config');
 
 
 module.exports = function login() {
@@ -8,7 +8,7 @@ module.exports = function login() {
   describe('POST /signup', function () {
 
     // it('signup success', function () {
-    //   return axios.post(`${config.BASEURL}/user/signup`, {
+    //   return axios.post(`${config.API_URL}/user/signup`, {
     //     email: `${Date.now()}@qq.com`,
     //     name: `tim${Date.now()}`,
     //     password: '123',
@@ -18,7 +18,7 @@ module.exports = function login() {
     // });
 
     it('email taken', function () {
-      return axios.post(`${config.BASEURL}/user/signup`, {
+      return axios.post(`${config.API_URL}/user/signup`, {
         email: `${config.EMAIL_RECEIVING_VERIFICATION}`,
         name: `timq`,
         password: '123',
@@ -31,7 +31,7 @@ module.exports = function login() {
     });
 
     it('name taken', function () {
-      return axios.post(`${config.BASEURL}/user/signup`, {
+      return axios.post(`${config.API_URL}/user/signup`, {
         email: 't92@qq.com',
         name: `tim`,
         password: '123',

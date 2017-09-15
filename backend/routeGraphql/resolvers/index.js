@@ -5,8 +5,8 @@ const resolvers = {
         // posts() {
         //     return posts;
         // },
-        user(_, { name }, req) {
-            return name;
+        async user(_, { name }, req) {
+            return await daos.User.get(name);
         },
     },
 
@@ -34,9 +34,10 @@ const resolvers = {
     // },
 
     User: {
-        name(name, args, req) {
-            return name;
-        }
+        songs(user, args, req) {
+            return user.name;
+        },
+
     }
 };
 

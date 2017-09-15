@@ -1,18 +1,19 @@
-var dynamodb = require('./dynamodb');
+var { dynamoDb } = require('../daos/db');
 (async () => {
 
-    await dynamodb.deleteTable({
+    await dynamoDb.deleteTable({
         TableName: "User"
     }).promise().catch(err => {
         console.log(err);
     });
 
 
-    await dynamodb.deleteTable({
+    await dynamoDb.deleteTable({
         TableName: "UserEmail"
     }).promise().catch(err => {
         console.log(err);
     });
 
+    console.log('tabels deleted');
 })();
 

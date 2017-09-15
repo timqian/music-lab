@@ -1,7 +1,7 @@
-var dynamodb = require('./dynamodb');
+var {dynamoDb} = require('../daos/db');
 
 (async () =>{
-    await dynamodb.createTable({
+    await dynamoDb.createTable({
         TableName: "User",
         KeySchema: [{AttributeName: 'name', KeyType: 'HASH'}],
         AttributeDefinitions: [
@@ -17,7 +17,7 @@ var dynamodb = require('./dynamodb');
     });
 
     // ref: https://stackoverflow.com/questions/12920884/is-there-a-way-to-enforce-unique-constraint-on-a-property-field-other-than-the
-    await dynamodb.createTable({
+    await dynamoDb.createTable({
         TableName: 'UserEmail',
         KeySchema: [{AttributeName:'email', KeyType:'HASH'}],
         AttributeDefinitions: [
@@ -32,7 +32,7 @@ var dynamodb = require('./dynamodb');
         console.log(err);
     });
 
-    // await dynamodb.createTable({
+    // await dynamoDb.createTable({
     //     TableName: 'Song',
     //     KeySchema: [
     //         {AttributeName: 'user', KeyType:'HASH'},
@@ -49,6 +49,8 @@ var dynamodb = require('./dynamodb');
     // }).promise().catch(err => {
     //     console.log(err);
     // });
+
+    console.log('tabels created');
 })();
 
 // dynamodb.createTable({
