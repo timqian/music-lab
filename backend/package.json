@@ -9,6 +9,7 @@
     "express": "^4.15.4",
     "express-graphql": "^0.6.11",
     "graphql": "^0.11.3",
+    "graphql-errors": "^2.1.0",
     "graphql-tools": "^1.2.2",
     "jsonwebtoken": "^7.4.3",
     "method-override": "^2.3.9",
@@ -20,7 +21,7 @@
   },
   "scripts": {
     "test": "export ON_LAMBDA='' && node scripts/deleteTable.js && node scripts/createTables.js && mocha --recursive --timeout 30000",
-    "testProductionNoteAllTheTablesWillBeCleared": "export ON_LAMBDA='true' && node scripts/deleteTable.js && node scripts/createTables.js && mocha --recursive --timeout 30000", 
+    "testProductionNoteAllTheTablesWillBeCleared": "export ON_LAMBDA='true' && node scripts/deleteTable.js && node scripts/createTables.js && mocha --recursive --timeout 30000",
     "start": "nodemon app.js -e js,graphql,json"
   },
   "author": "timqian",

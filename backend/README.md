@@ -20,6 +20,7 @@ https://github.com/apex/up-examples/tree/master/oss/node-8
 - [ ] add song!
 - [ ] send mail block event loop
 - [ ] update test flow
+- [ ] How to do follow?: One may want to see his followers and who are he following.
 
 ## Good pratise
 

@@ -32,23 +32,23 @@ var {dynamoDb} = require('../daos/db');
         console.log(err);
     });
 
-    // await dynamoDb.createTable({
-    //     TableName: 'Song',
-    //     KeySchema: [
-    //         {AttributeName: 'user', KeyType:'HASH'},
-    //         {AttributeName: 'name', KeyType: 'RANGE'},
-    //     ],
-    //     AttributeDefinitions: [
-    //         {AttributeName: 'user', AttributeType: 'S'},
-    //         {AttributeName: 'name', AttributeType: 'S'},
-    //     ],
-    //     ProvisionedThroughput: {
-    //         ReadCapacityUnits: 5,
-    //         WriteCapacityUnits: 5,
-    //     }
-    // }).promise().catch(err => {
-    //     console.log(err);
-    // });
+    await dynamoDb.createTable({
+        TableName: 'Song',
+        KeySchema: [
+            {AttributeName: 'author', KeyType:'HASH'},
+            {AttributeName: 'name', KeyType: 'RANGE'},
+        ],
+        AttributeDefinitions: [
+            {AttributeName: 'author', AttributeType: 'S'},
+            {AttributeName: 'name', AttributeType: 'S'},
+        ],
+        ProvisionedThroughput: {
+            ReadCapacityUnits: 5,
+            WriteCapacityUnits: 5,
+        }
+    }).promise().catch(err => {
+        console.log(err);
+    });
 
     console.log('tabels created');
 })();

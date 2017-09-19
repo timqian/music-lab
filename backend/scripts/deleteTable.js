@@ -14,6 +14,12 @@ var { dynamoDb } = require('../daos/db');
         console.log(err);
     });
 
+    await dynamoDb.deleteTable({
+        TableName: "Song"
+    }).promise().catch(err => {
+        console.log(err);
+    });
+
     console.log('tabels deleted');
 })();
 

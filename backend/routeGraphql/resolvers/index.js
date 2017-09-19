@@ -2,42 +2,36 @@ const daos = require('../../daos');
 
 const resolvers = {
     Query: {
-        // posts() {
-        //     return posts;
-        // },
         async user(_, { name }, req) {
             return await daos.User.get(name);
         },
     },
 
-    // Mutation: {
-        // upvotePost(_, { postId }) {
-        //     const post = find(posts, { id: postId });
-        //     if (!post) {
-        //         throw new Error(`Couldn't find post with id ${postId}`);
-        //     }
-        //     post.votes += 1;
-        //     return post;
-        // },
-    // },
+    Mutation: {
+        async putSong(_, { author, name, notes2D }, req) {
+            await daos.Song.put({
+                author,
+                name,
+                notes2D,
+            });
 
-    // Author: {
-    //     posts(author) {
-    //         return filter(posts, { authorId: author.id });
-    //     },
-    // },
+            return 'OK';
+        },
 
-    // Post: {
-    //     author(post) {
-    //         return find(authors, { id: post.authorId });
-    //     },
-    // },
+        async deleteSong(_, { author, name }, req) {
+            await daos.Song.del({
+                author,
+                name,
+            });
+
+            return 'OK';
+        }
+    },
 
     User: {
         songs(user, args, req) {
-            return user.name;
+            return daos.Song.getAll(user.name);
         },
-
     }
 };
 

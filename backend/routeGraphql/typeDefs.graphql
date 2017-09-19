@@ -16,25 +16,33 @@ enum userType {
 }
 
 type Song {
-    # user: String!
-    name: String! # userName#songName
-    notes2D: String
-    speed: Float
-    starNum: Float
-    isPersonal: Boolean
+    author: String!
+    name: String! 
+    notes2D: String!
+    # speed: Float
+    # starNum: Float
+    # isPersonal: Boolean
 }
+
+# input SongInput {
+#   author: String!
+#   name: String!
+#   notes2D: String!
+# }
 
 type Query {
     user(name: String!): User!
 }
 
-# type Mutation {
-
-# }
+# http://graphql.org/graphql-js/mutations-and-input-types/
+type Mutation {
+    putSong(author: String!, name: String!, notes2D: String!): String
+    deleteSong(author: String!, name: String!): String
+}
 
 # we need to tell the server which types represent the root query
 # and root mutation types. We call them RootQuery and RootMutation by convention.
 schema {
   query: Query
-#   mutation: Mutation
+  mutation: Mutation
 }
