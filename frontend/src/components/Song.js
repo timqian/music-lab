@@ -14,16 +14,18 @@ class Song extends Component {
         if( store.currentRow === -1) {
             pressedArr = store.pressedNotes;
         } else {
-            pressedArr = store.notes2D[store.currentRow]
+            // console.log(store.currentRow,'song');
+            const currentNotes = store.notes2D[store.currentRow]
+            pressedArr = currentNotes ? currentNotes.map((note, i) => note || store.pressedNotes[i]) : [];
         }
         return (
             <div onMouseDown={() => store.isMouseDown = true}
                 onMouseUp={() => store.isMouseDown = false}
                 className="Song"
             >
-                {!store.keyboardRecordMode ? <Keyboard pressedArr={pressedArr} isMouseDown={store.isMouseDown} /> : <div></div>}
+                {!store.isKeyboardUp ? <Keyboard pressedArr={pressedArr} isMouseDown={store.isMouseDown} /> : <div></div>}
                 <Strap store={store} />
-                {store.keyboardRecordMode ? <Keyboard pressedArr={pressedArr} isMouseDown={store.isMouseDown} /> : <div></div>}
+                {store.isKeyboardUp ? <Keyboard pressedArr={pressedArr} isMouseDown={store.isMouseDown} /> : <div></div>}
             </div>
         )
     }

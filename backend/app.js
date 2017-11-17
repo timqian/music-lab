@@ -42,12 +42,11 @@ app.get('/needingTokenAndEmailVerified', verifyToken, (req, res) => {
 app.use('/graphql', verifyToken, graphqlRoute);
 
 app.listen(PORT);
-console.log('API magic happens at http://localhost:', PORT);
+console.log(`API magic happens at http://localhost:${PORT}`);
 
 // handle unhandled promise rejection
 // https://nodejs.org/api/process.html#process_event_unhandledrejection
 process.on('unhandledRejection', function (reason, p) {
   console.log('Unhandled Rejection at: Promise ', p, ' reason: ', reason);
   // application specific logging, throwing an error, or other logic here
-  
 });

@@ -22,8 +22,7 @@ export function attackRow (currentRow, lastRow) {
             if(currentRow[i] !== 0 && (!lastRow || currentRow[i] !== lastRow[i])) attackArr.push(NUM_KEY_MAP[i]);
             if(currentRow[i] === 0) releaseArr.push(NUM_KEY_MAP[i]);
         }
-        
-        polySynth.triggerAttackRelease(attackArr, '2n');
+        polySynth.triggerAttackRelease(attackArr, '3');
         polySynth.triggerRelease(releaseArr);
     }
 }

@@ -40,10 +40,11 @@ export default class Strap extends Component {
             <div className="strap"
                 onScroll={() => handleScroll()}
             >
-            {store.keyboardRecordMode ? (<div className="whiteSpace"></div>) : (<div></div>)}
-
+            {/** whiteSpace is used to control the position of rowArr*/}
+            {store.isKeyboardUp ? (<div className="whiteSpace"></div>) : (<div></div>)}
                 {rowArr}
-                <button onClick={() => {
+                <br/> <br/>
+                <button className="bttn-minimal bttn-md bttn-no-outline" onClick={() => {
                     const notes2Add = [];
                     for (let j = 0; j < 50; j++) {
                         notes2Add[j] = [];
@@ -51,10 +52,10 @@ export default class Strap extends Component {
                             notes2Add[j].push(0);
                         }
                     }
-                    console.log(notes2Add.length, 'notes to add length');
+                    // console.log(notes2Add.length, 'notes to add length');
                     store.notes2D.push(...notes2Add);
-                }}> add  </button>
-                {!store.keyboardRecordMode ? <div className="whiteSpace"></div> : (<div></div>)}
+                }}> Add more rows  </button>
+                {!store.isKeyboardUp ? <div className="whiteSpace"></div> : (<div></div>)}
             </div>
         )
     }

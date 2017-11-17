@@ -1,6 +1,6 @@
 import { observable, autorun } from 'mobx';
 import { KEY_NUM , NUM_KEY_CODE_MAP, NUM_UP_KEY_CODE_MAP} from './config';
-import {attackRow, attack} from './utils/notePlayer.js'
+import { attackRow } from './utils/notePlayer.js'
 
 let handeler;
 
@@ -18,7 +18,7 @@ class Store {
   @observable isRecording = false;// record to notes in respond to playing notes
   @observable isMouseDown = false;
   @observable isWriteKeyMode = false; // disable black key on Strap
-  @observable keyboardRecordMode = false; 
+  @observable isKeyboardUp = false; // position of the keyboard
 
   constructor(notes2D) {
     this.notes2D = notes2D;
@@ -26,12 +26,16 @@ class Store {
     // autorun(() => console.log('isMouseDown in store', this.isMouseDown));
 
     // play the Row
+    let lastRow;
     autorun(() => {
       // console.log('current row in store', this.currentRow);
-      attackRow(this.notes2D[this.currentRow], this.notes2D[this.currentRow-1]);
+      if(this.currentRow !== lastRow) {
+        attackRow(this.notes2D[this.currentRow], this.notes2D[lastRow]);
+        lastRow = this.currentRow;
+      }
     });
     
-    // play the sound strap
+    // scroll the strap
     autorun(() => {
       if (this.isPlaying) {
         const element = document.querySelector('.strap');
@@ -43,23 +47,33 @@ class Store {
       }
     });
 
-    let lastPressedNotes;
+    //record from keyboard
     autorun (() => {
-      if (this.currentRow !== -1 && this.keyboardRecordMode) {
+      if (this.currentRow !== -1) {
         this.pressedNotes.forEach((note, i) => {
           if(note !== 0) this.notes2D[this.currentRow][i] = note;
         });
-      } else {
-        attackRow(this.pressedNotes, lastPressedNotes);
-        lastPressedNotes = JSON.parse(JSON.stringify(this.pressedNotes));
       }
+    });
+    
+    autorun(()=>{
+      if (this.currentRow >= this.notes2D.length && this.isKeyboardUp === false) this.isPlaying = false;
+      if (this.currentRow >= this.notes2D.length && this.isKeyboardUp === true) {
+        this.isPlaying = false;
+        document.querySelector('.strap').scrollTop += 100;
+      }
+    });
+
+    let lastPressedNotes;
+    autorun (()=>{
+      attackRow(this.pressedNotes, lastPressedNotes);
+      lastPressedNotes = JSON.parse(JSON.stringify(this.pressedNotes));
     });
 
     let noteMark = 1;
     autorun(() => {
-      // if (this.keyboardRecordMode) {
+      // if (this.isKeyboardUp) {
         window.addEventListener('keyup', e => {
-          const keyNum = 0;
           const possibleUpKeyNum1 = NUM_UP_KEY_CODE_MAP.indexOf(e.keyCode);
           const possibleUpKeyNum2 = NUM_UP_KEY_CODE_MAP.lastIndexOf(e.keyCode); 
           this.pressedNotes[possibleUpKeyNum1] = 0;

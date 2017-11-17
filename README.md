@@ -22,6 +22,8 @@ props in the next level is not updated,
 
 examples in the readme of https://github.com/mudcube/MIDI.js
 
+
+
 ## How to deal with continuity:
 
 1. 1px gap if clicked; remove 1px gap if continuly
@@ -37,6 +39,7 @@ example: https://www.graph.cool/docs/reference/auth/permission-queries-iox3aqu0e
 - [x] 布局改成pannel形式
 - [x] add more rows
 - [x] key binding！！！
+- [ ] login; signup; save song using graphql: https://github.com/apollographql/apollo-client/tree/lates
 - [ ] 反向 play
 - [ ] option to hide black keys
 - [ ] convert midi
