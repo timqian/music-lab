@@ -2,25 +2,46 @@ import { observable, autorun } from 'mobx';
 import { KEY_NUM , NUM_KEY_CODE_MAP, NUM_UP_KEY_CODE_MAP} from './config';
 import { attackRow } from './utils/notePlayer.js'
 
-let handeler;
-
 const tmpPressedNotes = []
 for (let i = 0; i < KEY_NUM; i++) {
   tmpPressedNotes.push(0);
 }
 
+// init notes2D
+const notes2D = [];
+for (let j = -1; j < 100; j++) {
+  notes2D[j] = [];
+  for (let i = 0; i < KEY_NUM; i++) {
+    notes2D[j].push(0);
+  }
+}
+
+const speedMap = [90, 70, 50, 30];
+
 class Store {
   @observable notes2D;// 2D number array storing all the notes of a song
   @observable pressedNotes;
   @observable currentRow = -1; // current time
-  @observable bmp = 80; // beats per minites (scroll spead)
+  @observable speedIndex = 1; // scroll 5 px
   @observable isPlaying = false;// update time if isPlaying is true
   @observable isRecording = false;// record to notes in respond to playing notes
   @observable isMouseDown = false;
   @observable isWriteKeyMode = false; // disable black key on Strap
   @observable isKeyboardUp = false; // position of the keyboard
 
-  constructor(notes2D) {
+  clearNotes() {
+    for(let i = 0; i < this.notes2D.length; i++) {
+      for(let j = 0; j < this.notes2D[0].length; j++) {
+        this.notes2D[i][j] = 0;
+      }
+    }
+  }
+
+  changeSpeed() {
+    this.speedIndex = (this.speedIndex + 1) % 4;
+  }
+
+  constructor(notes2D, tmpPressedNotes) {
     this.notes2D = notes2D;
     this.pressedNotes = tmpPressedNotes;
     // autorun(() => console.log('isMouseDown in store', this.isMouseDown));
@@ -36,12 +57,14 @@ class Store {
     });
     
     // scroll the strap
+    let handeler;
     autorun(() => {
       if (this.isPlaying) {
+        clearInterval(handeler);
         const element = document.querySelector('.strap');
         handeler = setInterval(()=>{
             element.scrollTop += 5;
-        }, 50);
+        }, speedMap[this.speedIndex]);
       } else {
         clearInterval(handeler);
       }
@@ -89,17 +112,6 @@ class Store {
   }
 }
 
-// init notes2D
-const notes2D = [];
-for (let j = -1; j < 100; j++) {
-  notes2D[j] = [];
-  for (let i = 0; i < KEY_NUM; i++) {
-    notes2D[j].push(0);
-  }
-}
-
-
-const store = new Store(notes2D);
-
+const store = new Store(notes2D, tmpPressedNotes);
 
 export default store;

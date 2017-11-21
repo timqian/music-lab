@@ -9,7 +9,6 @@ Press a button
 
 - [midi file conversion to any working, audible Tone.js object](https://github.com/Tonejs/Tone.js/issues/137)
 
-
 ## Questions
 
 pass down props or import store directly?
@@ -39,6 +38,7 @@ example: https://www.graph.cool/docs/reference/auth/permission-queries-iox3aqu0e
 - [x] 布局改成pannel形式
 - [x] add more rows
 - [x] key binding！！！
+- [ ] 如果 share 到手机，就弄一个css播放的效果
 - [ ] login; signup; save song using graphql: https://github.com/apollographql/apollo-client/tree/lates
 - [ ] 反向 play
 - [ ] option to hide black keys
@@ -53,6 +53,7 @@ example: https://www.graph.cool/docs/reference/auth/permission-queries-iox3aqu0e
 - [ ] 广场（other people's work
 - [ ] scroll bar 移过来
 - [ ] change the way scrolling (currently speed not right)
+- [ ] Intro with https://github.com/HubSpot/shepherd
 
 ## UI ref
 

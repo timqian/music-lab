@@ -27,9 +27,8 @@
 }
 
 #Song {
-   flex: 1;
+   flex: 1; 
    font-size: 0;
-   margin-top: 4vh;
 }
 
 

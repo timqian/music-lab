@@ -8,8 +8,7 @@ import { KEY_NUM } from '../../config';
 export default class Strap extends Component {
     render() {
         const store = this.props.store;
-        const notes2D = this.props.store.notes2D;
-
+        const notes2D = store.notes2D;
         const rowArr = notes2D.map((notes, i, notes2D) => {
             const emptyRow = [];
             for (let i = 0; i < KEY_NUM; i++) {
@@ -40,7 +39,7 @@ export default class Strap extends Component {
             <div className="strap"
                 onScroll={() => handleScroll()}
             >
-            {/** whiteSpace is used to control the position of rowArr*/}
+            {/** whiteSpace div is used to control the position of rowArr*/}
             {store.isKeyboardUp ? (<div className="whiteSpace"></div>) : (<div></div>)}
                 {rowArr}
                 <br/> <br/>

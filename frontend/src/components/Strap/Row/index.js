@@ -11,7 +11,6 @@ export default class Row extends Component {
         const rowNum = this.props.rowNum;
         const rowClassName = `Row-${rowNum}`;
         const notes = this.props.notes;
-
         document.querySelectorAll(`.${rowClassName} .cell`)
             .forEach((cell, i) => {
                 cell.addEventListener('mousedown', () => {
