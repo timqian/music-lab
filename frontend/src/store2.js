@@ -16,7 +16,7 @@ for (let j = -1; j < 100; j++) {
   }
 }
 
-const speedMap = [90, 70, 50, 30];
+const speedMap = [80, 60, 40, 20];
 
 class Store {
   @observable notes2D;// 2D number array storing all the notes of a song
