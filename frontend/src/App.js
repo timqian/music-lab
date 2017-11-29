@@ -31,13 +31,14 @@ class App extends Component {
               Clear
             </button><br />
           </div>
-          <button className="bttn-stretch bttn-sm" >
-            User Center
-          </button> 
+          {/* <button className="bttn-stretch bttn-sm" >
+            Hi there~ this is an unfinished product waiting for your suggestion. 
+          </button>  */}
         </div>
         <div id="Song">
           <div style={{color: '#f0f0f0', fontSize: '20', width: 940, margin: '0 auto'}}>
-            Name of the song will be here
+            {/* Name of the song will be here */}
+            Hi there~ this is an unfinished product waiting for your suggestion. 
             {/* <button className="bttn-stretch bttn-md bttn-no-outline">
               save
             </button> */}

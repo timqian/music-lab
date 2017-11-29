@@ -4,7 +4,6 @@ const { hashPassword } = require('../utils/crypts');
 const config = require('../config');
 const daos = require('../daos');
 
-
 module.exports = async function (req, res) {
   const { email, name, password } = req.body;
 
