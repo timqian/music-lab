@@ -5,7 +5,7 @@ const config = {
   SECRET: 'ilovemusic', // jwt secret
   API_URL: process.env.ON_LAMBDA ? 'https://0txotn5h18.execute-api.us-west-2.amazonaws.com/development' : 'http://localhost:3000',
   AWS_ENDPOINT: process.env.ON_LAMBDA ? 'https://dynamodb.us-west-2.amazonaws.com' : "http://localhost:8000",
-  AWS_ACCESS: 'AKIAIFS5D6E2GKOPIOIA',
+  AWS_ACCESS: 'AKIAIFS5D6E2GKOPIOIA', // removed after open source
   AWS_SECRET: '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',
   CLIENT_TOKEN_EXPIRES_IN: 24 * 60 * 60 * 30,          // client token expires time TODO: test expiring
   EMAIL_TOKEN_EXPIRES_IN: 24 * 60 * 60,           // email token expires time
